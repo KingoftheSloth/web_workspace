@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<!--  html 요소(태그) : html 문서의 최상의 부모 요소(태그)
+			html 문서를 구성하는 요소(태그) 들은 계층구조(트리구조) 입니다. 
+			요소들의 중첩이 있는 형식
+			 -->
+<html lang="en">
+<head><!-- head 요소(태그) : html 문서의 정보들로 구성된  -->
+    <meta charset="UTF-8">
+    <title>HTML 기본태그들 </title>
+</head>
+<body> <!-- body 요소(태그) : html 문서의 컨텐츠들로 구성 -->
+    <h1>heading 제목 1</h1> <!--  heading : 제목,표시 -->
+    <h2>제목 2</h2>
+    <h3>제목 3</h3>
+    <h4>제목 4: : html 기본 태그들을 확인해 보겠습니다.</h4>
+    <h5>제목 5</h5>
+    <h6>제목 6</h6>
+    <p>paragraph 단락. 텍스트 컨텐츠를 담는 문단 요소입니다. 문서(즉 <em>브라우저</em>)의 <strong>너비에 따라</strong> 자동으로 줄바꿈을 합니다. html 문서에서는 엔터를 입력해도
+        줄바꿈이 되지 않습니다. 단락 내에서 임의로 줄바꿈을 하려면 <br>태그를 사용합니다. 문자로 !@#$%^&*()_-+={}[]|\~`<>,.?/'":; 과 같은 기호를 출력
+        하려면 잘되는지 확인해보세요. 예전 브라우저에서는 표시가 안되고 문제가 생기지만 지금은 대체로 브라우저에서 잘 표시해 줍니다. 그러나,
+        < ,> , ' ," 과 같은 기호는 문자를 표시하는 방식을 따르는 것을 권합니다. &nbsp;&lt;&gt;&quot;&copy; 와 같이 작성합니다.<br>
+        참고<a href="https://www.w3schools.com/html/html_entities.asp">링크</a><br>
+        a는 anchor 의 약자입니다. 
+        링크에는 href 속성값에 이동할 웹페이지의 주소를 지정합니다.이것은 URL(Uniform Resource Locator) 이라고 합니다. 웹상의 어디에 위치하는지 주소입니다. 
+        예를 들면, Mozilla's 영어 홈페이지는 https://www.mozilla.org  <a href="https://www.mozilla.org">모질라</a> <br>
+        url 은 절대 URL 또는 상대 URL 로 나타냅니다. 절대 URL은 프로토콜과 도메인네임 예를 들면 https://www.mozilla.org 부터 모두 표시하고 , 상대 URL은 도메인네임이 
+        같은 경우 생략하고 표시합니다. 예시로 절대주소는 &lt;a href="http://localhost:8081/index.html"&gt;링크 &lt;/a&gt; 이고 
+        상대주소는 &lt;a href="index.html"&gt;링크 &lt;/a&gt; 입니다.
+        url은 img 태그의 src 속성에도 동일하게 적용합니다. 
+    </p>
+    <img src = "data:image/jpeg;base64,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"> 
+    <h4>순서 있는 목록 ordered list 만들기</h4>
+    <ol>
+        <li>항목 A</li>
+        <li>항목 B</li>
+        <li>항목 C</li>
+        <li>항목 D</li>
+    </ol>
+    <h4>순서 없는 목록 unordered list 만들기</h4>
+    <ul>
+        <li>항목 A</li>
+        <li>항목 B</li>
+        <li>항목 C</li>
+        <li>항목 D</li>
+    </ul>
+</body>
+</html>

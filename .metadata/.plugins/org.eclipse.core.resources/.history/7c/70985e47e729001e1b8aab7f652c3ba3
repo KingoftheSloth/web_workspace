@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<!--  html 요소(태그) : html 문서의 최상의 부모 요소(태그)
+			html 문서를 구성하는 요소(태그) 들은 계층구조(트리구조) 입니다. 
+			요소들의 중첩이 있는 형식
+			 -->
+<html lang="ko">
+<!-- 웹브라우저에도 screen reader 기능. lang 속성으로 html 페이지의 주요언어 표시 -->
+<head><!-- head 요소(태그) : html 문서의 정보들로 구성된  -->
+    <meta charset="UTF-8">
+    <title>HTML 기본태그들 </title>
+</head>
+<body> <!-- body 요소(태그) : html 문서의 컨텐츠들로 구성 -->
+    <h1>heading 제목 1</h1> <!--  heading : 제목,표시 -->
+    <h2>제목 2</h2>
+    <h3>제목 3</h3>
+    <h4>제목 4: : html 기본 태그들을 확인해 보겠습니다.</h4>
+    <h5>제목 5</h5>
+    <h6>제목 6</h6>
+    <p>
+    <div style="solid black" padding=10px">paragraph 단락. 텍스트 컨텐츠를 담는 문단 요소입니다. 문서(즉 <em>브라우저</em>)의 <strong>너비에 따라</strong> 자동으로 줄바꿈을 합니다. html 문서에서는 엔터를 입력해도
+        줄바꿈이 되지 않습니다. 단락 내에서 임의로 줄바꿈을 하려면 <br>태그를 사용합니다. 문자로 !@#$%^&*()_-+={}[]|\~`<>,.?/'":; 과 같은 기호를 출력
+        하려면 잘되는지 확인해보세요. 예전 브라우저에서는 표시가 안되고 문제가 생기지만 지금은 대체로 브라우저에서 잘 표시해 줍니다. 그러나,
+        < ,> , ' ," 과 같은 기호는 문자를 표시하는 방식을 따르는 것을 권합니다. &nbsp;&lt;&gt;&quot;&copy; 와 같이 작성합니다.<br>
+        참고<a href="https://www.w3schools.com/html/html_entities.asp">링크</a><br>
+        a는 anchor 의 약자입니다. 
+        링크에는 href 속성값에 이동할 웹페이지의 주소를 지정합니다.이것은 URL(Uniform Resource Locator) 이라고 합니다. 웹상의 어디에 위치하는지 주소입니다. 
+        예를 들면, Mozilla's 영어 홈페이지는 https://www.mozilla.org  <a href="https://www.mozilla.org">모질라</a> <br>
+        url 은 절대 URL 또는 상대 URL 로 나타냅니다. 절대 URL은 프로토콜과 도메인네임 예를 들면 https://www.mozilla.org 부터 모두 표시하고 , 상대 URL은 도메인네임이 
+        같은 경우 생략하고 표시합니다. 예시로 절대주소는 &lt;a href="http://localhost:8081/index.html"&gt;링크 &lt;/a&gt; 이고 
+        상대주소는 &lt;a href="index.html"&gt;링크 &lt;/a&gt; 입니다.
+        url은 img 태그의 src 속성에도 동일하게 적용합니다. </div>
+    <br>이미지 src 속성값을 절대URL사용: <br>
+    <img src = "https://images.chosun.com/resizer/u9nJRxs0BbtjygJ4HzKukecXnOk=/464x0/smart
+    /cloudfront-ap-northeast-1.images.arcpublishing.com/chosun/UVBJZL3RXAB36BDSHVM3MW2WNY.jpg" 
+    width="300">
+    <br>이미지 src 속성값을 상대 URL 사용: <br>
+    <!-- 현재 url http://localhost:8081/frontLesson과 동일한 부분은 생략하고
+    필요한 자원의 파일명만 지정합니다.  -->
+    <!-- a 태그는 다른 모든 요소를 포함하게 할 수 있습니다. 예시로 img -->
+    <a href="https://developer.mozilla.org/ko/docs/Learn/HTML
+    /Introduction_to_HTML/Getting_started"target = "_blank">
+<img src ="element.png"></a><br>
+    <a href = "https://www.naver.com"><img src = "element.png"></a><br>
+    <img src = "element.png" width="300"><br> 
+    <img src = "image/element.png" alt ="상대URL 테스트">
+    <!-- http://localhost:8081/frontLesson/image/element.png --> 
+    </p>
+    <h4>순서 있는 목록 ordered list 만들기</h4>
+    <ol>
+        <li>항목 A</li>
+        <li>항목 B</li>
+        <li>항목 C</li>
+        <li>항목 D</li>
+    </ol>
+    <h4>순서 없는 목록 unordered list 만들기</h4>
+    <ul>
+        <li>항목 A</li>
+        <li>항목 B</li>
+        <li>항목 C
+        <ol>
+        <li>서브항목 C-1</li>
+        <li>서브항목 C-2</li>
+        <li>서브항목 C-3</li>
+        <li>서브항목 C-4</li>
+        </ol></li>
+        <li>항목 D</li>
+    </ul>
+</body>
+</html>
