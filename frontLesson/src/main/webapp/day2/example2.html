@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>CSS 속성 정리해보기</title>
+<style type="text/css">
+
+table {
+	border-collapse: collapse;
+	margin: auto;
+	margin-top: 60px;
+}
+th, tr, td {
+	text-align: center;
+	border: 1px solid gray;
+}
+td:nth-child(3), td:nth-child(4) {
+	text-align: left;
+}
+td {
+	border: 1px solid gray;
+	font: bold;
+	font-size: large;
+	height: auto;
+	padding: 10px;
+}
+
+th:nth-child(1) {
+	width: 100px;
+}
+
+th:nth-child(2) {
+	width: 150px;
+}
+
+th:nth-child(3),th:nth-child(4) {
+	width: 500px;
+}
+
+th {
+	font: bold;
+	font-size: xx-large;
+	width: 250px;
+	height: 80px;
+	background-color: fuchsia;
+	opacity: 0.4;
+	color: white;
+}
+
+ul, ol {
+	margin: 20px;
+}
+</style>
+</head>
+<body>
+	<h1>CSS의 Properties 정리해보기
+	</h1>
+	<a href="https://www.w3schools.com/css" target="_blank">참고사이트 :
+		www.w3schools.com/css/ </a>
+	<table>
+		<tr>
+			<th>번호</th>
+			<th>주요개념</th>
+			<th>설명</th>
+			<th>예시</th>
+		</tr>
+		<tr>
+			<td>1</td>
+			<td>Color</td>
+			<td>색상은 미리 정의된 색상 이름 또는 RGB, HEX, HSL, RGBA, HSLA 값을 사용하여 지정됩니다.</td>
+			<td>&lt h1 style="color:Tomato;"><br>Hello World &lt/h1&gt
+			</td>
+		</tr>
+		<tr>
+			<td>2</td>
+			<td>Border</td>
+			<td>CSS 테두리 속성을 사용하면 요소 테두리의 스타일, 너비 및 색상을 지정할 수 있습니다.</td>
+			<td>p.dotted {border-style: dotted;}<br> p.dashed
+				{border-style: dashed;} <br>p.solid {border-style: solid;} <br>p.double
+				{border-style: double;}<br> p.groove {border-style: groove;} <br>p.ridge
+				{border-style: ridge;}<br> p.inset {border-style: inset;}<br>
+				p.outset {border-style: outset;}<br> p.none {border-style:
+				none;} <br>p.hidden {border-style: hidden;} <br>p.mix
+				{border-style: dotted dashed solid double;}
+			</td>
+		</tr>
+		<tr>
+			<td>3</td>
+			<td>Background</td>
+			<td>CSS 배경 속성은 요소에 배경 효과를 추가하는 데 사용됩니다.</td>
+			<td>div { background: rgba(0, 128, 0, 0.3)<br> /* Green
+				background with 30% opacity */ }
+			</td>
+		</tr>
+		<tr>
+			<td>4</td>
+			<td>Margins</td>
+			<td>여백은 정의된 테두리 외부의 요소 주위에 공간을 만드는 데 사용됩니다.</td>
+			<td>p { margin-top: 100px; margin-bottom: 100px; margin-right:
+				150px; margin-left: 80px; }</td>
+		</tr>
+		<tr>
+			<td>5</td>
+			<td>Padding</td>
+			<td>패딩은 정의된 테두리 내부의 요소 콘텐츠 주위에 공간을 만드는 데 사용됩니다.</td>
+			<td>div { padding-top: 50px; padding-right: 30px;
+				padding-bottom: 50px; padding-left: 80px; }</td>
+		</tr>
+		<tr>
+			<td>6</td>
+			<td>height / width</td>
+			<td>CSS height와 width속성은 요소의 높이와 너비를 설정하는 데 사용됩니다.<br> CSS
+				max-width속성은 요소의 최대 너비를 설정하는 데 사용됩니다.
+			</td>
+			<td><ol>
+					<li>auto- 기본값입니다. 브라우저는 높이와 너비를 계산합니다.</li>
+					<li>length- 높이/너비를 px, cm 등으로 정의합니다.</li>
+					<li>%- 컨테이닝 블록의 백분율로 높이/너비를 정의합니다.</li>
+					<li>initial- 높이/너비를 기본값으로 설정합니다.</li>
+					<li>inherit- 높이/너비는 부모 값에서 상속됩니다.</li>
+				</ol></td>
+		</tr>
+		<tr>
+			<td>7</td>
+			<td>Box Model</td>
+			<td>CSS에서 "상자 모델"이라는 용어는 디자인과 레이아웃을 말할 때 사용됩니다. CSS 상자 모델은 기본적으로
+				모든 HTML 요소를 감싸는 상자입니다.<br> 여백, 테두리, 패딩 및 실제 콘텐츠로 구성됩니다.
+			</td>
+			<td><ol>
+					<li>콘텐츠 - 텍스트와 이미지가 표시되는 상자의 콘텐츠</li>
+					<li>패딩 - 콘텐츠 주변 영역을 지웁니다. 패딩은 투명합니다</li>
+					<li>테두리 - 패딩과 콘텐츠를 둘러싸는 테두리</li>
+					<li>여백 - 테두리 밖의 영역을 지웁니다. 여백이 투명하다</li>
+				</ol></td>
+
+		</tr>
+		<tr>
+			<td>8</td>
+			<td>Outline</td>
+			<td>아웃라인은 요소의 경계 외부에 그려진 선입니다.</td>
+			<td>속성 outline-style은 윤곽선의 스타일을 지정하며 다음 값 중 하나를 가질 수 있습니다.
+				<ul>
+					<li>dotted- 점선 윤곽선을 정의합니다.
+					<li>dashed- 점선 개요를 정의합니다.</li>
+					<li>solid- 솔리드 아웃라인을 정의합니다.</li>
+					<li>double- 이중 개요를 정의합니다.</li>
+					<li>groove- 3D 그루브 아웃라인 정의</li>
+					<li>ridge- 3D 능선 윤곽을 정의합니다.</li>
+					<li>inset- 3D 삽입 윤곽을 정의합니다.</li>
+					<li>outset- 3D 외곽선을 정의합니다.</li>
+					<li>none- 개요를 정의하지 않음</li>
+					<li>hidden- 숨겨진 윤곽을 정의합니다.</li>
+				</ul>
+			</td>
+		</tr>
+		<tr>
+			<td>9</td>
+			<td>Text</td>
+			<td>HTML 문서 내의 내용 및 기타 텍스트 요소를 가리킵니다.</td>
+			<td>다음과 같은 속성들을 가집니다.
+				<ul>
+					<li>Text Color</li>
+					<li>Text Alignment</li>
+					<li>Text Decoration</li>
+					<li>Text Transformation</li>
+					<li>Text Spacing</li>
+					<li>Text Shadow</li>
+				</ul>
+		</tr>
+		<tr>
+			<td>10</td>
+			<td>Fonts</td>
+			<td>"글꼴"은 웹 페이지에서 사용되는 텍스트의 모양을 지정하는데 사용되는 속성입니다</td>
+			<td>CSS에는 다섯 가지 일반 글꼴 모음이 있습니다.
+				<ol>
+					<li>Serif 글꼴은 각 문자의 가장자리에 작은 획이있습니다. 그들은 격식과 우아함을 만듭니다.</li>
+					<li>Sans-serif 글꼴에는 깔끔한 선이 ​​있습니다(작은 획이 첨부되지않음). 모던하고 미니멀한 룩을
+						연출합니다.</li>
+					<li>모노스페이스 글꼴 - 여기에서 모든 문자는 동일한 고정 폭을 가집니다. 그들은 기계적인 모습을 만듭니다.</li>
+					<li>필기체 글꼴은 사람의 손글씨를 모방합니다.</li>
+					<li>판타지 글꼴은 장식/재미있는 글꼴입니다.</li>
+				</ol>
+		</tr>
+		<tr>
+			<td>11</td>
+			<td>Link</td>
+			<td>CSS를 사용하면 다양한 방식으로 링크의 스타일을 지정할 수 있습니다.</td>
+			<td>네 가지 링크 상태는 다음과 같습니다.
+				<ul>
+					<li>a:link- 정상적인 미방문 링크</li>
+					<li>a:visited- 사용자가 방문한 링크</li>
+					<li>a:hover- 사용자가 마우스를 올려놓으면 링크</li>
+					<li>a:active- 클릭하는 순간 링크</li>
+				</ul>
+			</td>
+		</tr>
+		<tr>
+			<td>12</td>
+			<td>List</td>
+			<td>HTML에는 두 가지 주요 유형의 목록이 있습니다.
+				<ul>
+					<li>정렬되지 않은 목록('ul') - 목록 항목은 글머리 기호로 표시됩니다.</li>
+					<li>정렬된 목록('ol') - 목록 항목은 숫자 또는 문자로 표시됩니다.</li>
+				</ul>
+			</td>
+			<td>ul.a { list-style-type: circle; }<br> ul.b {
+				list-style-type: square; }<br> ol.c { list-style-type:
+				upper-roman; }<br> ol.d { list-style-type: lower-alpha; }
+			</td>
+		</tr>
+		<tr>
+			<td>13</td>
+			<td>Table</td>
+			<td>HTML 표의 모양은 CSS를 사용하여 크게 개선할 수 있습니다.</td>
+			<td>
+				<ul>
+					<li>Table Borders</li>
+					<li>Table Size</li>
+					<li>Table Alignment</li>
+					<li>Table Style</li>
+					<li>Table Responsive</li>
+				</ul>
+			</td>
+		</tr>
+		<tr>
+			<td>14</td>
+			<td>Display</td>
+			<td>속성은 display요소가 표시되는지 여부/방법을 지정합니다.<br> 모든 HTML 요소에는 요소
+				유형에 따라 기본 표시 값이 있습니다.<br> 대부분의 요소에 대한 기본 표시 값은 block또는 입니다
+				inline.
+			</td>
+			<td>li { display: inline; }<br> h1.hidden { display: none;}<br>
+				h1.hidden { visibility: hidden; }
+			</td>
+		</tr>
+	</table>
+</body>
+</html>
