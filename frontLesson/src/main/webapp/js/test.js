@@ -1,0 +1,4 @@
+/**
+ * 
+ */
+document.getElementById('test').innerHTML 
