@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Form - 회원 가입</title>
+<link rel="stylesheet" href="../css/FormSample.css"></link>
+</head>
+<!-- Form 양식 만들기
+   1. input 태그로 입력 요소를 만들기 
+      ㄴ type 속성으로 입력 요소의 종류(text,password,number,..)를 선택하기
+   2. label 태그는 입력 요소가 focus(커서) 를 갖게 하도록 연결하는 텍스트
+      ㄴ for 속성을 입력 요소의 id 속성값과 같도록 합니다.   
+      ㄴ 참고 : 입력요소 focus 이동은 tab 키.
+   3. radio 버튼은 여러개 중 단일 선택. name 속성 값이 같게하여 그룹화.
+   4. form 태그 안에 입력 태그(input,select,button)를 넣으면 서버로 전송이 됩니다.
+   5. button 태그는 type 이 submit (제출하다.) 입니다.
+      ㄴ 버튼을 클릭하면 form 태그 안에 작성된 값들이 서버로 제출(전송)
+      ㄴ form 태그 action 속성값이 데이터를 받을 서버의 주소(url 요청 파일 형식 xxxx.jsp)
+      ㄴ 브라우저의 주소(url) 을 확인해보면 입력값들이 ? 기호 뒤에 `이름=값`(파라미터) 형식으로 나열(구분기호 &)
+      ㄴ 		서버에서는 파라미터 이름 name 속성으로 같은 값 value 속성을 가져오는 명령을 실행합니다. 
+      ㄴ ? 기호뒤에 전체 문자열을 쿼리스트링(query string)
+      ㄴ ***파라미터 설정은 name 속성이 필요합니다.***
+     ★★★★★ 실행예시 : http://localhost:8081/frontLesson/day4/FormSample.html
+     ?name=%ED%99%8D%EA%B8%B8%EB%8F%99&password=&email=&age=&gender=on
+     
+     name하고 value를 다시 설정하고 '가입하가'를 누른 실행 예시
+   http://localhost:8081/frontLesson/day4/FormSample.html
+   ?name=%ED%99%8D%EA%B8%B8%EB%8F%99&password=1234&email=thsrlgns0000%40daum.net
+   &age=23123&Address=%EC%84%9C%EC%9A%B8&gender=male&hobby=%EC%B6%95%EA%B5%AC&hobby=%EC%95%BC%EA%B5%AC
+     
+ -->
+<body>
+	<h3>회원가입</h3>
+	<!-- form 데이터 전송 방식은 method라고 합니다. 'get'이 기본값이 데이터를 url과 함께 보냅니다. 조회 목적.
+	'post'방식으로 하면 네트워크 패킷에 담아서 보냅니다.(url에 표시 안됨). 저장 목적. 
+	=>지역, 취미는 name 속성이 없는 상태로 실행했을 경우 url 입니다. 
+	-->
+	<form action="" >
+		<table>
+			<tr>
+				<td><label for="lblName" >이름</label></td>
+			<td><input type="text" id="lblName" value="홍길동" name="name"></td>
+			</tr>
+			<tr>
+				<td><label for="lblPass">패스워드</label></td>
+				<td><input type="password" id="lblPass" name="password" value="12345"
+				disabled="disabled"></td>
+			</tr>
+			<tr>
+				<td><label for="lblEmail">이메일</label></td>
+				<td><input type="text" id="lblEmail" name="email"></td>
+			</tr>
+			<tr>
+				<td><label for="lblAge">나이</label></td>
+				<td><input type="number" id="lblAge"  name="age" max="100" min="18"></td>
+			</tr>
+			<tr>
+				<td><label for="lblAddr">지역(주소)</label></td>
+				<td>
+				<!--  선택상자(콤보 박스), 드롭다운 -->
+				<select id ="lblAddr" name="Address">
+				<option>서울</option>
+				<option>인천</option>
+				<option>대전</option>
+				<option>대구</option>
+				<option>광주</option>
+				<option>부산</option>
+				<option>기타</option>
+				</select>
+				</td>
+			</tr>
+			<tr>
+				<td><label>성별</label></td>
+				<td>
+				<!-- radio 버튼은 여러개 중 단일 선택. name 속성값이 같게하여 그룹화. -->
+				<input type="radio" name="gender" id="lblMale" value="male">
+				<label for="lblMale">남성</label>
+					<input type="radio" name="gender" id="lblFemale" value="female">
+				<label for="lblFemale">여성</label>
+					<input type="radio" name="gender" id="lblNo" value = "unknown"
+					checked="checked">
+				<label for="lblNo">모름</label>
+				</td>
+			</tr>
+			<tr>
+			<td><label>취미</label></td>
+			<!-- 체크박스는 다중 선택. 서버에서 배열로 받습니다. name 속성 값도 같은 그룹이면 동일하게.
+			toggle동작 (선택이 되었다가 해제했다가, 클릭 할 때 마다 반대로)-->
+				<td>
+				<input type="checkbox" id="lblFootball" name="hobby" value="축구">
+				<label for="lblFootball">축구</label>
+				<input type="checkbox" id="lblBaseball" name="hobby" value="야구"
+				 checked="checked">
+				<label for="lblBaseball">야구</label>
+				<input type="checkbox" id="lblRun" name="hobby" value="달리기">
+				<label for="lblRun">달리기</label>
+				<input type="checkbox" id="lblSwim" name="hobby" value="수영">
+				<label for="lblSwim">수영</label>
+				</td>
+			</tr>
+			<tr>
+			<td colspan="2">
+			<button>가입하기</button> <!-- form 태그 안에 있을 때는 type = submit 생략됨. -->
+			<button type="reset">다시쓰기</button>
+			<button type="button" onclick="alert('hello~\n테스트입니다.')">테스트</button>
+			<!-- onclick은 자바스크립트 코드를 작성합니다. -->
+			</td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>
