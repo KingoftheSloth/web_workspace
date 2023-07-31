@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Error Test</title>
+<!-- 이 위치의 script 명령들은 body의 태그 요소들이 배치되기 전에 실행됩니다.  -->
+
+<script type = "text/javascript">
+// 아래 요소 2개 가져오는 명령은 함수에서 선언되지 않을 때 즉 ***전역변수 위치에서는 null 리턴***. 
+// 아직 body 에 해당 태그 요소들이 없습니다. 
+// 결론 : 스크립트로 태그 요소들을 가져올 때에는 순서(태그의 위치와 스크립트의 위치)를 고려해야 합니다. 
+const light = document.getElementById('light')
+const state = document.getElementById('state')
+console.log(light) // null
+console.log(state) // null 
+
+//script 태그가 head 안에 있을 때는 위와 같이 요소를 가져올 수 없어서 오류가 생김. 
+
+function lightToggle(){
+	//현재 상태를 알 수 있는 변수 대신에 state.innerHTML 값을 검사해서
+	// 'OFF'이면 lightOn() ,'ON'이면 lightOff() 실행하기.' 
+	if(state.innerHTML == 'ON'){
+		lightOff()
+	}else 
+		lightOn()
+		
+}
+
+function lightOn(){
+	// 이미지 바꾸기, 글꼴 색상바꾸기 , 텍스트 바꾸기 
+		
+	light.src ='../image/pic_bulbon.gif'
+	state.style.color = 'green'
+	state.innerHTML = 'ON'
+}
+
+function lightOff(){
+	state.style.color = 'red'
+		state.innerHTML = 'OFF'
+			light.src = '../image/pic_bulboff.gif'
+}
+</script>
+
+</head>
+<body>
+<h3>다음 동작을 실행하는 연습 : 함수 정의 </h3>
+<ol>
+<li>1. 태그(요소)의 컨텐츠 변경 : innerHTML </li>
+<li>2. 태그(요소)의 속성 변경 : 예시, img 태그의 src 속성값 변경</li>
+<li>3. 태그(요소)의 스타일 변경 : ON/OFF 글꼴 색상 변경</li>
+<li>*위의 3가지를 하기 위해서는 HTML 태그요소 가져와야 합니다. - document.getElementById</li>
+</ol>
+<div style ="margin : 20px; border:1px solid gray;">
+<h4> 현재 상태 : <span id = "state" style ="color:red;">OFF</span></h4>
+<img alt = "light" src = "../image/pic_bulboff.gif" id="light"
+style ="cursor: pointer;" onclick="lightToggle()"><br>
+<button onclick = "lightOn()"> 불을 켜주세요.</button>
+<button onclick = "lightOff()"> 불을 꺼주세요.</button>
+</div>
+<!--  이 위치의 script 명령들은 body의 태그들이 모두 배치된 후에 실행됩니다.  -->
+
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<!-- 3) addEventListener 이외 callback 함수 사용 예시 -->
+<h4>자바스크립트의 Windows 객체</h4>
+<p><a href="https://www.w3schools.com/jsref/obj_window.asp">w3schools참고</a></p>
+<p>프로퍼티 또는 메소드 사용할 떄 window.xxx 에서 window 를 생략하고 사용합니다.</p>
+<h5>프로퍼티 : 객체 </h5>
+<p>console,document,history,location,parent,self</p>
+<hr>
+<h5>프로퍼티 : 단순 값. </h5>
+<p>innerHeight,innerWidth,</p>
+<hr>
+<h5>메소드</h5>
+<ul>
+	<li>alert(),confirm(),prompt()</li>
+	<li>setInterval(),setTimeout(), clearInterval(),clearTimeout()</li>
+	<li>open() - 새로운 윈도우 열기 , close()</li>
+</ul>
+<hr>
+<h4>setInterval(콜백 함수 예시) 테스트</h4>
+<p>
+	지금 시간은 <span id="now"></span>          입니다. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<button id="btn_stop">STOP</button><button id="btn_toggle">이 버튼은 start 와
+	STOP 기능 2가지를 합니다. </button>
+</p>
+<script type="text/javascript">
+document.getElementById('now').innerHTML = new Date()
+//자바스크립트에서도 new Date()로 날짜 객체(현재날짜)를 생성. 
+
+//위의 명령을 함수로 정의 합니다. 
+let func_date = () => document.getElementById('now').innerHTML = new Date()
+
+//형식을 정의하면 아래와 같습니다. 
+function func_now(){
+	
+	document.getElementById('now').innerHTML = new Date()
+}
+//setInterval() 메서드는 시간을 주면 시간 간격 마다 지정된 함수 실행
+let time = setInterval(func_date, 1000)  // 단위 ms.1000ms = 1초)
+
+
+// 버튼 클릭을 콜백함수로 이용해서 동작시키기
+document.getElementById('btn_stop').addEventListener('click', func_stop)
+
+function  func_stop(){
+	clearInterval(time)
+}
+
+
+// 메서드 객체의 구성요소. 함수는 독립적. 만약에 함수가 객체의 프로퍼티일 때는 메서드가 됩니다. 
+// 나머지 연습 : 집에가서 해보세요. (상태를 저장하는 변수 사용하세요.)
+// 남은 진도 : 배열, 개체 , json , open api.
+</script>
+</body>
+</html>
+
+
+
+
