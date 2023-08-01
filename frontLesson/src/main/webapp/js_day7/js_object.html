@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>자바스크립트의 Object 사용</title>
+</head>
+<body>
+<h3> 자바스크립트 객체 정의와 사용하기 </h3>
+ <!--   자바스크립트 데이터타입 : number,string,boolean,undefined,null,function,array(object),object
+                  : 데이터 타입확인연산자 typeof
+    객체 구성 : 프로퍼티(객체의 상태),메소드(객체의 동작/기능)
+                객체의 프로퍼티값이 함수일때 메소드 입니다.
+
+    객체 정의  : 자바에서는 개발자 클래스는 먼저 정의하고 필요할때 new 연산으로 생성
+    자바스크립트는 프로토타입 기반(별도 클래스 정의 없는 형식)이라고 합니다. 바로 객체 리터럴로 생성할 수 있습니다.
+ -->
+<script type ="text/javascript">
+//프로토타입 오브젝트라고 합니다. (형식이 미리 정해져 있지 않고도 사용할 수 있는 객체)
+const sana = {name:'사나',age:23,address:'서울'} // 대입문 오른쪽이 객체 리터럴이라고 불린다. 
+
+console.log('이름:' + sana.name)
+console.log('나이:' + sana.age)
+console.log('주소:' + sana.address)
+
+sana.personalColor = 'brown' // 오류가 안생기고 새로운 프로퍼티가 객체에 추가됩니다. 
+console.log(sana)
+
+const momo = {} 		// 프로퍼티가 정의 되지 않았지만 객체 리터럴 선언 변수에 대입 .
+momo.name = '모모맨'
+momo.height = 194
+momo.weight = 45
+
+console.log(momo)
+//프로퍼티를 추가합니다. 이 프로퍼티는 함수 입니다. => sana 객체에 hell() 메서드가 추가 된 것. 
+sana.hello = function (){
+	alert('안녕하세요. 저의 이름은 ' + this.name + '입니다.' )
+}
+
+console.log(sana)
+sana.hello()
+</script>
+</body>
+</html>
