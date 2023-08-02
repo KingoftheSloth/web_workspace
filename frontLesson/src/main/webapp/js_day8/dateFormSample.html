@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<form action = "">
+<label for="selectNight">숙박일수</label>
+<select name = "days" id ="selectNight">
+<option value="0">선택</option>
+<option value="1">1박</option>
+<option value="2">2박</option>
+<option value="3">3박</option>
+<option value="4">4박</option>
+</select><br>
+<label for = "enterDate">입실날짜 :</label>
+<input type ="date" name="start">
+<label for = "outDate">퇴실날짜 :</label>
+<input type ="date" name="end" id="outDate">
+</form>
+<!-- 1. 입실날짜는 오늘 날짜로 초기화 합니다.
+	 2. 퇴실날짜는 선택한 숙박일수 + 입실날짜로 합니다. 8/2 입실 + 3박 = 8/5
+	 3. 퇴실날짜는 select 태그에서 숙박일수 선택하면 계산해서 표시합니다.
+	 							ㄴ click, change 이벤트
+	 4. 입실날짜는 오늘 이전 날짜는 선택을 못하도록 해야합니다.(input 태그 min 속성)
+	 	입실날짜는 최대 오늘 ~3달 이후로만 설정할 수 있습니다. (input 태그 max 속성) 
+	 	**참고 : input type = date 인 경우 value는 년도 4자리-월2자리-일2자리로 설정
+	 	-->
+<script type="text/javascript">
+//입실날짜 고정 및 계산
+function dateFormat(vdate,symbol){
+			year = vdate.getFullYear()
+			month = vdate.getMonth()
+			dates = vdate.getDate()
+			let result = [year,month,dates].join(symbol)
+			return result
+		}
+
+console.log(new Date())
+today= dateFormat(new Date())
+console.log(today)
+
+start.value = today
+
+
+
+
+// 숙박일수 + 가입날짜
+
+	
+
+
+</script>
+</body>
+</html>
