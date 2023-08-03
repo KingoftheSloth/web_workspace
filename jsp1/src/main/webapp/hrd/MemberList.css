@@ -1,0 +1,12 @@
+@charset "UTF-8";
+
+section td:nth-child(1) {
+	color : white;
+}
+
+table {
+	text-align : center;
+	width: 1200px;
+	margin: auto;
+	height : 250px;
+}

@@ -2,10 +2,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>숙박일수 계산하기</title>
 </head>
 <body>
-<form action = "">
+<form action = ""><!--  동기방식의 서버-클라이언트 동작에서만 form 태그 사용 -->
 <label for="selectNight">숙박일수</label>
 <select name = "days" id ="selectNight">
 <option value="0">선택</option>
@@ -14,9 +14,9 @@
 <option value="3">3박</option>
 <option value="4">4박</option>
 </select><br>
-<label for = "enterDate">입실날짜 :</label>
+<label for = "enterDate" id ="enterDate">입실날짜 :</label>
 <input type ="date" name="start">
-<label for = "outDate">퇴실날짜 :</label>
+<label for = "outDate" id = "outDate">퇴실날짜 :</label>
 <input type ="date" name="end" id="outDate">
 </form>
 <!-- 1. 입실날짜는 오늘 날짜로 초기화 합니다.
@@ -28,28 +28,51 @@
 	 	**참고 : input type = date 인 경우 value는 년도 4자리-월2자리-일2자리로 설정
 	 	-->
 <script type="text/javascript">
-//입실날짜 고정 및 계산
-function dateFormat(vdate,symbol){
-			year = vdate.getFullYear()
-			month = vdate.getMonth()
-			dates = vdate.getDate()
-			let result = [year,month,dates].join(symbol)
-			return result
-		}
+const start = document.forms[0].start
+const end = document.forms[0].end
+const days = document.forms[0].days
 
-console.log(new Date())
-today= dateFormat(new Date())
-console.log(today)
+document.getElementById('selectNight').addEventListener('click',calculateEnd)
+// 선택상자(드롭다운,콤보) 에서는 change 이벤트도 가능
 
-start.value = today
+document.getElementById('enterDate').addEventListener('change',calculateEnd)
+// 입실 날짜 요소의 초기화
+
+let today = new Date()
+start.value = dateFormat(today,'-')
+start.min = dateFormat(today,'-') // 입실 날짜의 최소값
+
+today.setMonth(today.getMonth()+3) // 3개월 후 날짜로 today를 변경하기
+start.max = dateFormat(today,'-') // 입실날짜의 최대값
 
 
-
-
-// 숙박일수 + 가입날짜
+//숙박일수 또는 입실날짜 선택할 때의 이벤트 함수 
+function calculateEnd(){
+	console.log(start.value) // 받아온 값의 형식의 yyyy-mm-dd
+	console.log(end.value)
+	console.log(days.value)
 
 	
+	//퇴실날짜 : start.value 는 문자열이므로 날짜형식으로 바꾸어서 + 숙박일수.
+//=> 문자열로 변경해서 퇴실날짜 요소의 value로 설정하기.
+let temp = new Date(start.value)
+temp.setDate(temp.getDate()+Number(days.value)) // temp 는 날짜형식. + 은 덧셈과 문자열 연결
+console.log("퇴실날짜 :" + temp)
+//temp를 'yyyy-mm-dd' 문자열로 변환하여 퇴실날짜로 합니다.
 
+end.value = dateFormat(temp,'-')
+}
+
+
+function dateFormat(vdate,symbol){
+	year = vdate.getFullYear()
+	month = (vdate.getMonth()+1).toString().padStart(2,'0')
+	dates = vdate.getDate().toString().padStart(2,'0')
+	let result = [year,month,dates].join(symbol)
+	return result
+}
+
+console.log(new Date(),'-')
 
 </script>
 </body>
