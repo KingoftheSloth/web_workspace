@@ -23,5 +23,7 @@ Date join_date;
 String grade;
 String city;
 
+public Member_Dto() {}
 
 }
+
