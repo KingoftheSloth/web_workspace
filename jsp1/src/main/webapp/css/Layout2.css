@@ -1,0 +1,89 @@
+@charset "UTF-8";
+html, body{
+	height:100%;
+	margin: 0;
+}
+
+header{
+	padding : 60px;
+	background-color:blue;
+	opacity : 0.6;
+	color: white;
+	box-sizing:border-box;
+	min-height :20vh;
+	
+	/* flexbox 레이아웃으로 자식 요소를 정렬하기  */
+	diplay: flex;
+	/* 수직 정렬 */
+	align-itmes: center;
+	/* 수평 정렬 */
+	justify-content: center;
+	
+}
+
+h3{
+	text-align : center;
+	font-size : x-large;
+}
+
+nav{
+	box-sizing: border-box;
+	height : 7vh;
+	min-height : 7vh;
+}
+a{ 
+	text-decoration: none;
+	color: white;
+}
+
+nav ul{
+	list-style : none;
+	overflow : hidden;
+	/* 자식 li에 float 속성을 지정했을 때 필요 합니다. */
+	background-color: #9565f3; 
+	margin : 0; 
+	color : white;
+	height : 7vh
+	
+}
+nav li{
+	padding : 20px;
+	float : left;
+	padding : 20px 50px;
+	
+}
+
+section {
+	padding : 10px;
+	box-sizing: border-box;
+	background-color : #e1dddd;
+	min-height : 66vh;
+}
+section h2{
+	color: black;
+}
+
+table{
+	border: 1px solid black;
+	height :250px;
+	margin : auto;	
+}
+
+tr,td,th
+{
+		border: 1px solid black;
+}
+
+footer
+{
+	min-height : 7vh;
+	box-sizing: border-box;
+	background-color : blue;
+	color : white;
+	text-align : center;	
+}
+
+footer h4{
+	padding : 20px;
+	margin : 0;
+}

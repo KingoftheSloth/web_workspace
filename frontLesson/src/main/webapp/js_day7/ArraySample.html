@@ -128,27 +128,41 @@ tableMake()
          newtd2.innerHTML= atodo
          tr2.appendChild(newtd2)
    
+         time.push(`${atime}`)
+         todo.push(`${atodo}`)
+         tableMake()
             })         
 
+// 정렬기능 챗 선생님 버전
+document.getElementById('sortBtn').addEventListener('click', () => {
+    const combinedArray = time.map((value, index) => ({ time: value, todo: todo[index] }));
 
-/*  document.getElementById('todoAddBtn').addEventListener('click' ,() =>{
-	
-	
-	time.sort(function(a, b)  {
-		  if(a > b) return 1;
-		  if(a === b) return 0;
-		  if(a < b) return -1;
-		});
-		document.writeln(arr + '<br>'); // [1, 2, 3, 10]
-	
-	
-}) */
+    combinedArray.sort((a, b) => {
+        if (a.time > b.time) return 1
+        if (a.time === b.time) return 0
+        if (a.time < b.time) return -1
+    })
 
+    for (let i = 0; i < combinedArray.length; i++) {
+        time[i] = combinedArray[i].time
+        todo[i] = combinedArray[i].todo
+    }
 
+    let timeResult = '<th>TIME</th>'
+    time.forEach(function(value) {
+        timeResult += `<td>${value}</td>`
+    })
+
+    document.getElementById('time').innerHTML = timeResult // Update the 'time' table row
+
+    let todoResult = '<th>TODO</th>'
+    todo.forEach(function(value) {
+        todoResult += `<td>${value}</td>`
+    })
+    document.getElementById('todo').innerHTML = todoResult // Update the 'todo' table row
+})
 /* favicon은 우리 잘못이 아니다 favicon(즐겨찾기)이 존재하지 않기 때문에 
  * 이와 같은 에러가 발생한다고 보면 됩니다.  */
-
 </script>
-	<!--  -->
 </body>
 </html>

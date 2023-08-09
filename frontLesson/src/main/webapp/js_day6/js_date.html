@@ -87,8 +87,8 @@ function dateFormat(vdate,symbol){
 			
 		
 			year = vdate.getFullYear()
-			month = vdate.getMonth()
-			dates = vdate.getDate()
+			month = (vdate.getMonth()+1).toString().padStart(2,'0')
+			dates = vdate.getDate().toString().padStart(2,'0')
 			let result = [year,month,dates].join(symbol)
 		
 			return result
@@ -96,8 +96,12 @@ function dateFormat(vdate,symbol){
 		//실행
 		document.write('<br>')
 		document.write(dateFormat(new Date(2022,3,2),'/'))
-		//2022/03/22
-
+		//2022/03/22 이 아니라 4/22 가 뜸
+		
+		let testdate = '2023-08-11'// input type = date 일 때 value 문자열 형식
+		document.write('<br>') 
+		document.write(dateFormat(new Date(testdate),'-'))
+		// month +1을 함
 		var arr =[ 1, 2, 3, 4 ]
 console.log( arr.join() )      // 1,2,3,4
 console.log( arr.join( '-' ) ) // 1-2-3-4

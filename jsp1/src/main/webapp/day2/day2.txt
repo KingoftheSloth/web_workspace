@@ -24,6 +24,8 @@
 	ㄴ input type = hidden(숨김) 일 때는 화면 표시는 안되고 
 								  파라미터 전송은 합니다. 
 <<jsp 액션태그>>
+jsp 안에서 내장객체를 이용하여 작성하는 자바코드 대신에 사용하는 태그 
+
 1. jsp:include
 	ㄴ 외부 jsp 파일을 포함시킵니다. 컴파일 된 .class를 포함합니다.
 	ㄴ 여러 jsp 파일에서 공통적으로 사용되는 코드 부분을 
@@ -33,10 +35,17 @@
  	ㄴ jsp:include 에서 포함시키는 jsp에 파라미터를 전달하기
  	
  	
-jsp 안에서 내장객체를 이용하여 작성하는 자바코드 대신에 사용하는 태그 
-jsp:useBean 태그를 조사해서,
-		ㄴ jsp:setProperty : 값저장
+3. jsp:useBean 태그를 - 속성 id : 자바빈의id. 변수명 , class : 자바빈(객체)으로 만들어질 패키지명.클래스 지정
+		scope : 4가지 자바빈즈가 사용할 수 있ㄴ
+		
+		ㄴ jsp:setProperty : 값 저장. getParameter 메서드 + setter 메서드 실행
+		         ㄴ  속성 종류 (property : 자바빈을 만든 클래스의 필드(변수) 이름
+		         			  name : 자바빈 id랑 설정을
+		         			  param : input 태그의 name
+		         			  property="*" 로 하면 모든 파라미터를 가져올 수 있습니다.
+		         			  (단, input 태그 name 속성, dto 클래스의 필드명을 같도록 합니다.)
 		ㄴ jsp:getProperty : 출력
+		ㄴ 기본생성자, setter,getter 있는지 확인
 RegisterSave.jsp 에서 사용해보세요.(getParameter 대신에 사용합니다.) 	
 
 

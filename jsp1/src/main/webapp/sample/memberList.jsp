@@ -13,7 +13,7 @@
 <%
 /* 스크립트릿 : 자바 코드가 들어갈 수 있는 기호.  */
 Member_Dao dao = Member_Dao.getMemberDao();
-List<Member_Dto> list = dao.SelectAll();
+List<Member_Dto> list = dao.selectAll();
 
 
 %>

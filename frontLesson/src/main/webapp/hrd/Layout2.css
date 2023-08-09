@@ -13,9 +13,9 @@ header{
 	min-height :20vh;
 	
 	/* flexbox 레이아웃으로 자식 요소를 정렬하기  */
-	diplay: flex;
+	display: flex;
 	/* 수직 정렬 */
-	align-itmes: center;
+	align-items: center;
 	/* 수평 정렬 */
 	justify-content: center;
 	

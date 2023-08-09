@@ -1,17 +1,31 @@
 @charset "UTF-8";
-body{
-	margin : 0;
+html, body{
+	height:100%;
+	margin: 0;
 }
 /* 블럭요소의 width는 기본이 100% 입니다,
 height는 컨텐츠 크기 만큼. 높이는 padding으로 정하기 */
-.header{
-	padding: 40px 20px;
-	background-color : aqua;
-	color : white;
+header{
+	padding : 60px;
+	background-color:blue;
 	opacity : 0.6;
+	color: white;
+	box-sizing:border-box;
+	min-height :20vh;
+	
+	/* flexbox 레이아웃으로 자식 요소를 정렬하기  */
+	display: flex;
+	/* 수직 정렬 */
+	align-items: center;
+	/* 수평 정렬 */
+	justify-content: center;
+	
 }
 
 .nav{
+	box-sizing: border-box;
+	height : 7vh;
+	min-height : 7vh;
 	
 }
 ul{

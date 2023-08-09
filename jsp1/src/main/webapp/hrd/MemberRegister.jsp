@@ -21,27 +21,27 @@
 </nav>
 <section>
 <h2>홈쇼핑 회원 등록</h2>
-<form action= "RegisterSave.jsp" method="post">
+<form action= "RegisterSave2.jsp" method="post">
 <table>
 <tr>
 	<td><label for="lblNum" >회원번호(자동발생)</label></td>
-	<td><input size = "15" type ="text" id="lblNum" value="" name="cusNo"></td>
+	<td><input size = "15" type ="text" id="lblNum" value="" name="custNo"></td>
 </tr>
 <tr>
 	<td><label for="lblName" >회원성명</label></td>
-	<td><input size = "15" type ="text" id="lblName" value="" name="name"></td>
+	<td><input size = "15" type ="text" id="lblName" value="" name="custName"></td>
 </tr>
 <tr>
 	<td><label for="lblPhone" >회원전화</label></td>
-	<td><input size = "30" type ="text" id="lblPhone" value="" name="phoneNum"></td>
+	<td><input size = "30" type ="text" id="lblPhone" value="" name="phone"></td>
 </tr>
 <tr>
 	<td><label for="lblAdd" >회원주소</label></td>
-	<td><input size = "40" type ="text" id="lblAdd" value="" name="addr"></td>
+	<td><input size = "40" type ="text" id="lblAdd" value="" name="address"></td>
 </tr>
 <tr>
 	<td><label for="lblreg" >가입일자</label></td>
-	<td><input size = "15" type ="text" id="lblreg" value="" name="regidate"></td>
+	<td><input size = "15" type ="text" id="lblreg" value="" name="address" disabled></td>
 </tr>
 <tr>
 	<td><label for="lblgrade" >고객등급[A:VIP,B:일반,C:직원]</label></td>
@@ -49,7 +49,7 @@
 </tr>
 <tr>
 	<td><label for="lblccode" >도시코드</label></td>
-	<td><input size = "15" type ="text" id="lblccode" value="60" name="cityCode"></td>
+	<td><input size = "15" type ="text" id="lblccode" value="60" name="city"></td>
 </tr>
 <tr>
 	<td colspan="2"><button>등록</button>
