@@ -52,7 +52,7 @@ public class MyMallMain {
 			if (customid.equals("0000"))
 				break;
 			try {
-				customer = cdao.login(customid);
+				customer = cdao.selectById(customid);
 				if (customer != null) {
 					System.out.println(customer.getName() + " 고객님 환영합니다.");
 					isLogin = true;

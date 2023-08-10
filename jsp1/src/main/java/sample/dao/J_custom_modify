@@ -1,0 +1,2 @@
+alter table j_custom modify password varchar2(64);
+

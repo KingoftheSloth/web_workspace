@@ -1,0 +1,31 @@
+1. JSTL = Java(S)erver(P)age Standard tag Library
+ 1) core 태그 : 값 저장과 출력, 실행 제어
+ 2) fmt 태그 :format. 출력 포맷 설정하기 
+			(숫자,날짜 출력형식 / local 설정)
+ 3) fn :함수. 문자열 메서드를 함수형태로 사용하기 
+		(자바의 문자열 메서드와 상당부분 일치)
+
+2. EL : ${} 은 getAttribute 로 값을 가져와서 출력한다.
+		애트리뷰트는 자바빈과 동일하게 4개의 scope 저장소에 보관되는 데이터.
+		객체의 프로퍼티는 getter 메서드 없이 바로 가져온다.
+		getAttribute 메서드의 리턴타입은 Object 이고 ${} 은 타입변환도 합니다.
+   - EL 기본 객체
+      	param : 요청매개변수 값 저장. 매개변수가 배열일 떄는 paramValues
+      	cookie : 쿠키값 저장
+      	pageContext : 현재 페이지의 정보 pageContext의 객체 
+      	pageScope : page scope 데이터 저장소 지정
+      	requestScope : request scope 데이터 저장소 지정
+      	sessionScope : session scope 데이터 저장소 지정
+      	applicationScope : application scope 데이터 저장소 지정. 
+      	
+      	※${}에서 scope 지정이 없으면 page >> request >> session > application
+      	※현재 jsp 페이지에서 request,session 객체를 el로 사용하기 위해서는
+      		1)pageContext.request
+      		2)pageContext.session
+      		
+  참고 : spring 프레임웍은 jsp를 고려하지 않고 처리되는 부분이 많아서 
+        외부라이브러리 태그도 jstl을 쓸 수는 있지만 다른 방법이 더 권장이 됩니다. 
+        다른방법이란 jsp 를 안쓰고 그냥 hmtl 을 사용하고 여기에다른 라이브러리
+        예를 들면 Thymeleaf 등 
+        
+ 3. session 객체를 이용한 로그인 구현

@@ -17,6 +17,8 @@ private String Name;
 private String Email;
 private int age;
 private Date date;
+private String password;
+
 
 
 public JCustomerDto() {

@@ -21,9 +21,8 @@ List<Member_Dto> list = dao.selectAll();
 
 //list 를 저장하는 애트리뷰트 
 request.setAttribute("list",list);
-// 요청을 listView(화면출력)로 전달하기
-// -> list를 list.jsp 와 listView.jsp 가 공유하게 됩니다. 
-pageContext.forward("listView.jsp");
+// 요청을 listView
+pageContext.forward("day4listView.jsp");
 
 %>
 </body>

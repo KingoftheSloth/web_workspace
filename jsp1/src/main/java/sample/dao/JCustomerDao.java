@@ -18,7 +18,7 @@ import sample.dto.JCustomerDto;
 */
 public class JCustomerDao {
 //1. 회원로그인
-	public JCustomerDto login(String id) throws SQLException {
+	public JCustomerDto selectById(String id) throws SQLException {
 		Connection connection = jdbc.util.OracleUtility.getConnection();
 		String sql = "select * from j_custom where Custom_id = ? ";
 		// PK 조회 : 결과 행은 0 또는 1개
@@ -34,7 +34,7 @@ public class JCustomerDao {
 		if(rs.next()) {
 		temp = new JCustomerDto(rs.getString(1),rs.getString(2),
 				rs.getString(3),rs.getInt(4),
-				rs.getDate(5));
+				rs.getDate(5),null);
 		}
 		
 		ps.close();
@@ -42,5 +42,29 @@ public class JCustomerDao {
 		return temp;
 		
 	}
+	
+	public JCustomer login(String id, String password) throws SQLException {
+		Connection conn = OracleUtility.getConnection();
+	      // id는 custom_id 컬럼값, password는 password 컬럼값(평문으로 저장됨)
+	      String sql = "select custom_id ,name "
+	            + " from j_custom where custom_id =? and password=?";
+	      JCustomer result = null;
+	      try (PreparedStatement ps = conn.prepareStatement(sql)){
+	         ps.setString(1, id);
+	         ps.setString(2,password);
+	         ResultSet rs = ps.executeQuery();
+	         if(rs.next()) {
+	        	 result = new JCustomer();
+	        	 result.setCustom_id(rs.getString(1));
+	        	 result.setName(rs.getString(2));
+	         }
+	         conn.close();
+	      }catch(SQLException e) {
+	         e.printStackTrace();
+	      }
+	      System.out.println(result);
+	      return result;      //result 가 null 이 아니면 로그인 성
 
+	
+	} 
 }
