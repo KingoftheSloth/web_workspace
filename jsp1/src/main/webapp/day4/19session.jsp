@@ -43,8 +43,8 @@
 	out.print("session 최근요청 시간 :" + df.format(last));
 	out.print("<br>");
 	
-	//메소드로 timeout 변경하기
-	session.setMaxInactiveInterval(180);		//300초
+	//메소드로 timeout 변경하기(web.xml에 설정된 timeout을 변경하는 메서드)
+	session.setMaxInactiveInterval(180);		//180초
 	session.setAttribute("session_user", "김땡땡");
 %>
 <br><a href="sessionAttr.jsp">세션 애트리뷰트 확인</a>
