@@ -1,0 +1,56 @@
+@charset "UTF-8";
+body {
+	margin:0;
+}
+header {
+	background-color: #0000FF;
+	color : white;
+	padding : 50px 20px;   /* 상하 좌우 내부여백  */
+}
+h2,h3,h4 {
+	text-align: center;
+}
+ul {
+	list-style: none;
+	overflow: hidden;
+	background-color:#8572EE;
+	margin: 0px;
+}
+/* 선택자 기호 : > 는 자식 요소 */
+ul > li {
+	float:left;
+}
+ul > li:last-child{
+	margin-left: 50px;
+}
+/* 선택자 기호 : 공백 은 자손 요소 */
+ul a{
+	background-color: #8572EE;
+	display: block;
+	padding :20px;
+	text-decoration: none;
+	color: white;
+	
+}
+/* 방문한 링크의 스타일 : visited 하고 hover 순서대로 설정 */
+a:visited {
+	color : white;
+}
+/* 가상 선택자 : hover는 마우스 올릴때 동작하는 css */
+a:hover {
+	color: aqua;
+	cursor: pointer;
+}
+nav{  }
+main{
+	background-color: #c8c8c8;
+	height: 500px;
+	padding: 20px;
+	clear:left;   /* float:left; 적용 없애기 */
+}
+footer{
+	background-color: cornflowerblue;
+	color:white;
+	padding: 20px;
+		
+}

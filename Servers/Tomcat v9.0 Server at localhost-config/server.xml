@@ -165,7 +165,7 @@
       <Context docBase="jsp2_mybatis" path="/jsp2_mybatis" reloadable="true" source="org.eclipse.jst.jee.server:jsp2_mybatis"/>
       <Context docBase="d:\\iclass0419\\upload" path="/upload"/>
       <!-- docBase로 지정된 서버의 로컬 경로를 path로 지정한 url로 접근 할 수 있습니다.  -->
-      </Host>
+      <Context docBase="jsp3_maven" path="/jsp3_maven" reloadable="true" source="org.eclipse.jst.jee.server:jsp3_maven"/><Context docBase="frontController" path="/frontController" reloadable="true" source="org.eclipse.jst.jee.server:frontController"/><Context docBase="hrd_mvc2" path="/hrd_mvc2" reloadable="true" source="org.eclipse.jst.jee.server:hrd_mvc2"/></Host>
     </Engine>
   </Service>
 </Server>
