@@ -3,7 +3,7 @@ package vo;
 import java.sql.Date;
 //VO클래스 : Value Object. 객체가 값으로 쓰인다. 모든 필드값이 같으면 동일한 밸류. hashcode, equals 메소드 재정의.
 //DTO클래스 : Data Transfer Object ,데이터를 전달하는 목적으로 정의
-public class MemberVo {			//불변객체(setter 없으므로 값을 변경못함.) 
+public class MemberVo {			
 	private int custno;
 	private String custname;
 	private String phone;
