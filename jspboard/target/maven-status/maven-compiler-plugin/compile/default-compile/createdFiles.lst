@@ -1,0 +1,5 @@
+org\iclass\dto\Community.class
+org\iclass\dto\CommunityComments$CommunityCommentsBuilder.class
+org\iclass\dto\Community$CommunityBuilder.class
+mybatis\SqlSessionBean.class
+org\iclass\dto\CommunityComments.class
