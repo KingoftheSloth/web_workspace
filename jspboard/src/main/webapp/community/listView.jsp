@@ -7,7 +7,8 @@
 <head>
 <meta charset="UTF-8">
 <title>우리 북카페</title>
-	<link rel="stylesheet" href="${pageContext.request.contextPath }/css/list.css?v=3">  
+	<link rel="stylesheet" href="${pageContext.request.contextPath }/css/list.css?v=3"> 
+	<!-- pageContext.reqeust.contextPaht : jspboard : 보통 web.xml에서 프로젝트 이름, 서비스 이름으로 설정되어 있다. 현재 페이지로 이동 --> 
 </head>
 <body>
 <main id="list">
@@ -26,9 +27,9 @@
 		</ul>
 	</li>
 	
- 	<c:forEach var="vo" items="${list}"> 
+ 	<c:forEach var="vo" items="${list}"> <!-- list 받아온 거 를 vo변수에 넣고 vo에서 각각 ul태그 에 넣기   --> 
 	<li>
-		<ul  class="row">
+		<ul  class="row"> <!--ul 태그 요소의 수평 정렬  -->
 			<li>
 				<c:out value="${vo.idx }"/>
 			</li>
@@ -63,9 +64,12 @@
 	</ul>
 	<div style="float:right;margin:40px;">
 		<%-- <a href="write.jsp?page=${paging.currentPage }" class="button" >글쓰기</a>   --%>
-		<!-- 글쓰기 할때 로그인을 하도록 한다면 자바스크립트 함수로 로그인 여부 확인합니다. -->
+		<!-- 글쓰기 할 때 로그인을 하도록 한다면 자바스크립트 함수로 로그인 여부 확인합니다. -->
 		<a href="javascript:write()" class="button">글쓰기</a>
 		<a href="${pageContext.request.contextPath}" class="button" >홈</a>
+		<!-- contextPath로 url 요청하면 웰컴리스트에 해당하는 index.jsp ㄹ 알아서 요청/ 화면 출력  
+				ㄴweb.xml에 이 설정이 있습니다. 
+		-->
 	</div>
 </div>
 <script type="text/javascript">

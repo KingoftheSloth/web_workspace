@@ -21,7 +21,7 @@
 <c:if test="${user ==null }">
 	<p><a href="login/loginForm.jsp">로그인</a></p>
 </c:if>
-	<p><a href="board/listAction.jsp">커뮤니티</a></p>
+	<p><a href="board/listView.jsp">커뮤니티</a></p>
 </nav>
 </body>
 </html>
