@@ -16,12 +16,12 @@
 <!-- "user" 라는 이름의 애트리뷰트 가져오기 -->
 <c:if test="${user !=null }">
 	<h4><c:out value="${user.name }"/> 님 환영합니다.</h4>
-	<p><a href="login/logout.jsp">로그아웃</a></p>
+	<p><a href="logout.jsp">로그아웃</a></p>
 </c:if>
 <c:if test="${user ==null }">
-	<p><a href="login/loginForm.jsp">로그인</a></p>
+	<p><a href="login.jsp">로그인</a></p>
 </c:if>
-	<p><a href="board/listView.jsp">커뮤니티</a></p>
+	<p><a href="community/list.jsp">커뮤니티</a></p>
 </nav>
 </body>
 </html>

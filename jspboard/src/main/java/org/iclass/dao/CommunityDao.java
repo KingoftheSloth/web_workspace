@@ -68,4 +68,13 @@ public class CommunityDao {
 			mapper.close();
 			return result;
 		}
+public long insert(Community vo) {
+	SqlSession mapper = SqlSessionBean.getSession();
+	mapper.insert("community.insert",vo);
+	mapper.commit();
+	mapper.close();
+	
+	return vo.getIdx();
 }
+}
+
