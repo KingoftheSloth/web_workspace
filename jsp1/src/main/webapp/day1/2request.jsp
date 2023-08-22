@@ -13,7 +13,8 @@
 URI (Uniform Resource Identifier) 동일한 서버와 포트 위치안에서 자원을 식별하는 부분  -->
 <li> 요청 URL : <%= request.getRequestURL() %> </li>
 <li> 요청 URI : <%= request.getRequestURI() %> </li>
-<li> 컨텍스트(context) : <%= request.getContextPath() %> </li>
+<!-- el로 할떄 ${pageContext.request.contextPath}  : 애플리케이션 이름을 기준으로 절대 주소 표시할 때-->
+<li> 컨텍스트(context) : <%= request.getContextPath() %> </li> 
 <li> 클라이언트 ip : <%= request.getRemoteAddr() %> </li>
 <li> 클라리언트 host : <%= request.getRemoteHost() %> </li>
 <li> 클라이언트 포트 : <%= request.getRemotePort() %> </li>
@@ -30,7 +31,7 @@ URI (Uniform Resource Identifier) 동일한 서버와 포트 위치안에서 자
 <!-- localhost는 네트워크에 연결될 수 없는 내 컴퓨터 ip 주소 -->
 <li> 요청 URL: http://localhost:8081/jsp1/day1/2request.jsp </li> 
 <li> 요청 URI: /jsp1/day1/2request.jsp</li>
-<!-- 프로젝트 일므이 컨텍스트로 기본값 설정 된 상태. context: 맥락, 문맥
+<!-- 프로젝트 이름이 컨텍스트로 기본값 설정 된 상태. context: 맥락, 문맥
      그냥 텍스트(Text) 처럼 바로 이해되는 단순히 원본 정도가 아니라,
      문맥 및 상황에 따라, 어떤 해석이 가미되어 이해되는 한 차원 높은 공간, 영역을 의미  --> 
 <li> 컨텍스트(context): /jsp1 </li> 

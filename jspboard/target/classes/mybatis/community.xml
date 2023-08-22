@@ -58,10 +58,11 @@
 		idx=#{idx}
 	</delete>
 
-	<insert id="insert" parameterType="org.iclass.dtio.Community">
+	<insert id="insert" parameterType="org.iclass.dto.Community">
 		INSERT INTO
-		community (idx,writer,title,content)
-		VALUES (community_idx_seq.nextval,#{writer},#{title},#{content})
+		community (idx,writer,title,content,ip)
+		VALUES (community_idx_seq.nextval,#{writer},#{title},#{content},#{ip,jdbcType=VARCHAR})
+		<!-- 매개변수가 null 을 허용하고 싶을 때  ip,jdbcType=VARCHAR -->
 		<!--참고 : insert 후에 community_idx_seq 시퀀스 값을 가져와서 idx 프로퍼티에 저장하는 태그 , Mybatis지원 -->
 		<selectKey keyProperty="idx" resultType="Long" order="AFTER">
 			select community_idx_seq.currval

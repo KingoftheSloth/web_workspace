@@ -9,4 +9,19 @@
     <welcome-file>default.jsp</welcome-file>
     <welcome-file>default.htm</welcome-file>
   </welcome-file-list>
+
+
+<!-- 오류 페이지 설정하기 : 모든 구현을 끝내고 마지막에 작성하기 왜냐하면 오류를 발견해야 디버깅할 수 있으므로-->
+<!-- 모든 Exception 이 생겼을 때 error.jsp로 url 이동하기 -->
+ <error-page>
+<exception-type>
+java.lang.Exception
+</exception-type>
+<location>/error.jsp</location>
+</error-page>
+<!-- 에러코드 404에 대한 처리 -->
+<error-page>
+<error-code>404</error-code>
+<location>/error.jsp</location>
+</error-page>
 </web-app>

@@ -20,8 +20,9 @@
       	
       	※${}에서 scope 지정이 없으면 page >> request >> session > application
       	※현재 jsp 페이지에서 request,session 객체를 el로 사용하기 위해서는
-      		1)pageContext.request
-      		2)pageContext.session
+      		1)pageContext.request : pageContext에 포함된 request 객체
+      		2)pageContext.session : pageContext 에 포함된 Session 객체
+      		
       		
   참고 : spring 프레임웍은 jsp를 고려하지 않고 처리되는 부분이 많아서 
         외부라이브러리 태그도 jstl을 쓸 수는 있지만 다른 방법이 더 권장이 됩니다. 
