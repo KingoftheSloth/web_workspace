@@ -24,12 +24,12 @@
 					<input type="text" name="title" size="50" >
 					</td>
 				</tr>
-				<tr>
+				<!-- <tr>
 					<th>작성자</th>
 					<td><textarea type="text" name="title" size="50" ></textarea>
 					</td>
 				</tr>
-				<!-- 작성자는 문제점을 발견하기 위한 추가 사항이고 나중에는 삭제합니다.  -->
+				작성자는 문제점을 발견하기 위한 추가 사항이고 나중에는 삭제합니다.  -->
 				<tr>
 					<th>내용</th>
 					<td><textarea rows="30" cols="80" name="content" ></textarea>
