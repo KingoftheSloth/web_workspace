@@ -30,7 +30,7 @@ if(request.getParameter("page")!= null){
 CommunityDao dao = CommunityDao.getInstance();
 Community vo = dao.selectByIdx(idx); /* idx글 조회하기 */
 
-if(!user.getId().equals(vo.getWriter())) /*  로그인한 사용자와 글쓴이가 다를 떄   */
+if(!user.getId().equals(vo.getWriter())) /*  로그인한 사용자와 글쓴이가 다를 떄  이 부분도 필터로 보낼 수 있지만, 페이지를 한개만 설정해야되서 여기다가 작성*/
 	throw new IllegalAccessException(); 
 
 //(1)

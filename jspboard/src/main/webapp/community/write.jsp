@@ -39,7 +39,7 @@
 					<td colspan="2" align="center">
 						<button type="submit">저장</button> <!-- 유효성 검사 후 자바스크립트에서 submit.(hrd_mvc2 프로젝트 유효성 검사 참고.) -->
 						<button type="reset">다시쓰기</button>
-						<button type="button" onclick="Location.href='list?page=${page}}'">목록</button>
+						<button type="button" onclick="location.href='list.jsp'">목록</button>
 						<!-- 현재페이지 번호 전달 --  순서5)  -->
 					</td>
 				</tr>
