@@ -18,6 +18,8 @@ String f = request.getParameter("f");
 String pageNO = request.getParameter("page");
 String content = request.getParameter("content");
 
+Long idx = Long.parseLong(request.getParameter("index"));
+
 BookUser user  = (BookUser)session.getAttribute("user");
 String writer = user.getId();
 CommunityCommentsDao dao =  CommunityCommentsDao.getInstance();
@@ -36,7 +38,10 @@ if(f.equals("1")){ // insert
 		
 	}
 }else if(f.equals("2")){ //delete
-	
+	dao.delete(idx);
+	request.setAttribute("message", "댓글 삭제가 완료되었습니다.");
+	request.setAttribute("url","read.jsp?idx="+ mref +"&page="+pageNO);
+	pageContext.forward("alert.jsp");
 	
 }else {
 	throw new IllegalAccessException();

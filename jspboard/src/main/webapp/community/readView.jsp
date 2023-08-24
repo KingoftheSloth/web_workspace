@@ -109,45 +109,43 @@
 							<li><textarea rows="5" cols="80" name="content"
 									style="resize: none; margin-right: 20px;"
 									placeholder="로그인 후에 댓글을 작성하세요." class="input"></textarea></li>
-							<li style="align-self: center; margin-bottom: 20px;">
-							<c:if test="${sessionScope.user !=null }">
+							<li style="align-self: center; margin-bottom: 20px;"><c:if
+									test="${sessionScope.user !=null }">
 									<button type="button" onclick="executeCmt(1,0)">등록</button>
 									<!-- 2번째 인자는 댓글 등록에서는 필요 없음. 아무값 0  -->
 								</c:if> <c:if test="${sessionScope.user == null }">
 									<button type="button" onclick="location.href='../login'">로그인</button>
+								</c:if></li>
+						</ul>
+					</li>
+					<li><span>댓글</span> <span>[<c:out
+								value="${vo.commentCount }" />]
+					</span> <!-- 댓글갯수 -->
+						<hr></li>
+
+					<!--댓글 목록 : cmtlist 애트리뷰트 필요  -->
+					<c:forEach var="cmt" items="${cmtlist }">
+						<li>
+							<ul class="crow">
+								<li><c:out value="${cmt.writer }" /></li>
+								<li><c:out value="${cmt.ip }" /></li>
+								<li><c:out value="${cmt.createdAt }" /></li>
+								<!-- session에 저장된 user attribute의 id와 작성자의 id가 같으면 삭제버튼 보이기 -->
+								<c:if test="${user.id==cmt.writer }">
+									<li><a href="javascript:executeCmt(2,'${cmt.idx}')">삭제</a></li>
+									<!-- 함수의 2번 째 인자는 삭제할 댓글의 idx-->
 								</c:if>
-								</li>
-						</ul>
+							</ul>
 						</li>
-						<li>
-						<span>댓글</span>
-						<span>[<c:out value = "${vo.commentCount }"/>]</span> <!-- 댓글갯수 -->
-						<hr>
-						</li>
-						
-						<!--댓글 목록 : cmtlist 애트리뷰트 필요  -->
-						<c:forEach var ="cmt" items="${cmtlist }">
-						<li>
-						<ul class = "crow">
-<li><c:out value = "${cmt.writer }"/></li>
-<li><c:out value = "${cmt.ip }"/></li>
-<li><c:out value = "${cmt.createdAt }"/></li>
-<!-- session에 저장된 user attribute의 id와 작성자의 id가 같으면 삭제버튼 보이기 -->
-<c:if test ="${user.id==cmt.writer }">
-<li><a href="javasciprt:executeCmt(2,'{cmt.idx}')">삭제</a></li>
-<!-- 함수의 2번 째 인자는 삭제할 댓글의 idx-->
-</c:if>
-						</ul>
-						</li>
-						<li>
-						<pre  class="cmtcontent"><c:out value="${cmt.content }"/></pre>
-						</li>
-						</c:forEach>
-						</ul>
+						<li><pre class="cmtcontent">
+								<c:out value="${cmt.content }" />
+							</pre></li>
+					</c:forEach>
+				</ul>
 			</form>
 		</div>
 	</main>
-<script type="text/javascript">
+	<script type="text/javascript">
 function executeCmt(fval,cidx){ /* 첫번째는 등록 또는 삭제 기능, 두번째 인자는 삭제할 댓글 idx  */
 	const frm = document.forms[0]
 	if(fval===1){ // 댓글 등록 '1'==1 (참) '1'===1 (거짓. 타입체크)
@@ -155,18 +153,20 @@ function executeCmt(fval,cidx){ /* 첫번째는 등록 또는 삭제 기능, 두
 		alert('글 내용 입력은 필수 입니다. ')
 		frm.content.foucus()
 		return;
-	}else  {
+	}else if(fval===2){
+	alert('글삭제')
+frm.f.value = fval
+frm.index.value = cindx
+frm.submit()
+	}
+	else  {
 		frm.f.value = fval
 		frm.submit() // 댓글 저장
 		
 	}	
 }
-// 받아와야할 요소 idx, fval
-if(fval===2){
-
-	const frm = document.forms[0]
-	}
 }
+
 
 
 
