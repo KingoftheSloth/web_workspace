@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>유기동물 보호소 정보</title>
+</head>
+<body>
+    <h1>유기동물 보호소 정보</h1>
+    <pre id="jsonOutput"></pre>
+    <script>
+        var apiKey = "ne53vYZ%2FHctQxGJhVLlcKvtvzi%2FHNfY42exeWo4iiO%2FxrJTgFukzupa98bwUDM318BruDv8y8kWtQDh76hClvQ%3D%3D"; // 제공해 주신 인증키 입력
+        var apiUrl = "http://openapi.animal.go.kr/openapi/service/rest/animalShelterSrvc/shelterInfo"; // API 엔드포인트
+
+        // API 호출
+        fetch(apiUrl + "?ServiceKey=" + apiKey + "&pageNo=1&numOfRows=10&upr_cd=6110000", {
+            method: "GET"
+        })
+        .then(response => response.text())
+        .then(data => {
+            var parser = new DOMParser();
+            var xmlDoc = parser.parseFromString(data, "text/xml");
+            var json = xmlToJson(xmlDoc); // XML을 JSON으로 변환하는 함수 호출
+            var jsonOutput = document.getElementById("jsonOutput");
+            jsonOutput.textContent = JSON.stringify(json, null, 2); // JSON을 문자열로 출력
+        })
+        .catch(error => console.error("API 호출 오류:", error));
+
+        // XML을 JSON으로 변환하는 함수
+        function xmlToJson(xml) {
+            var obj = {};
+
+            if (xml.nodeType === 1) {
+                if (xml.attributes.length > 0) {
+                    obj["@attributes"] = {};
+                    for (var j = 0; j < xml.attributes.length; j++) {
+                        var attribute = xml.attributes.item(j);
+                        obj["@attributes"][attribute.nodeName] = attribute.nodeValue;
+                    }
+                }
+            } else if (xml.nodeType === 3) {
+                obj = xml.nodeValue;
+            }
+
+            if (xml.hasChildNodes()) {
+                for (var i = 0; i < xml.childNodes.length; i++) {
+                    var item = xml.childNodes.item(i);
+                    var nodeName = item.nodeName;
+                    if (typeof(obj[nodeName]) === "undefined") {
+                        obj[nodeName] = xmlToJson(item);
+                    } else {
+                        if (typeof(obj[nodeName].push) === "undefined") {
+                            var old = obj[nodeName];
+                            obj[nodeName] = [];
+                            obj[nodeName].push(old);
+                        }
+                        obj[nodeName].push(xmlToJson(item));
+                    }
+                }
+            }
+
+            return obj;
+        }
+    </script>
+</body>
+</html>
