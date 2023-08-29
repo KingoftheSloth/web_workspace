@@ -22,18 +22,22 @@ public class SqlSessionBean {
  * 
  */
 	public static SqlSessionFactory sqlSessionFactory;
-	static {   //변수들이 static 영역에 저장됩니다.
-		String resource = "mybatis/mybatis-config.xml";    //mybatis 설정파일
-		InputStream inputStream=null;			//파일을 읽기위한 입력 스트림
-	
-	
-		try {
-			inputStream = Resources.getResourceAsStream(resource);   //리소스 파일 자원 읽어오기
-		}catch(IOException e) {
-			System.out.println("mybatis 설정 파일 읽기 오류입니다.");
-		}
-		sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);   
-		//읽어온 파일로 factory 생성
+	static {
+	    String resource = "myBatis/mybatis-config.xml";
+	    InputStream inputStream = null;
+
+	    try {
+	        inputStream = Resources.getResourceAsStream(resource);
+	    } catch (IOException e) {
+	        System.out.println("mybatis 설정 파일 읽기 오류입니다.");
+	        e.printStackTrace(); // 예외 내용 출력
+	    }
+
+	    if (inputStream != null) {
+	        sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+	    } else {
+	        System.out.println("inputStream이 null입니다."); // 오류 메시지 출력
+	    }
 	}
 	
 	public static SqlSession getSession() {    

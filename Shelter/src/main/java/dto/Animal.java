@@ -13,13 +13,16 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class animal {
+public class Animal {
 
 	private long desertionNo;
 	private String kind;
 	private String breed;
 	private String neuterYn;
+	private String weight;
+	private String age;
 	private String processState;
 	private String happenDt;
+	private String filename;
 
 }

@@ -1,5 +1,12 @@
+<%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
+<%@page import="dao.animalDao"%>
+<%@page import="dto.Animal"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,77 +15,52 @@
 </head>
 <h1>동물정보관리</h1>
 <hr>
-<form action="post">
-<table>
-  <tbody id="infoTable"></tbody>
-</table>
-</form>
-<script type="text/javascript">
-  const xhr = new XMLHttpRequest();
-  // 요청 파라미터를 쿼리스트링으로 설정
-  xhr.open(
-    'GET',
-    'http://apis.data.go.kr/1543061/abandonmentPublicSrvc/abandonmentPublic?serviceKey=ne53vYZ%2FHctQxGJhVLlcKvtvzi%2FHNfY42exeWo4iiO%2FxrJTgFukzupa98bwUDM318BruDv8y8kWtQDh76hClvQ%3D%3D&_type=json&numOfRows=20'
-  );
-  xhr.send();
-  xhr.onload = function () {
-	  if (xhr.status == 200) {
-	      let response = JSON.parse(xhr.response);
-	      let dataContainer = document.getElementById('dataContainer');
-	      let items = response.response.body.items.item;
-	      let infoHtml = '';
-	      for (let i = 0; i < items.length; i += 2) {
-	          infoHtml += '<tr>';
-	          for (let j = i; j < i + 2 && j < items.length; j++) {
-	            let item = items[j];
-	            let processState = item.processState;
-	            let kind = item.kindCd;
-	            let color = item.colorCd;
-	            let special = item.specialMark;
-	            let photo = item.popfile; // 사진 파일 URL
-
-	            let modify = '수정하기';
-
-	            infoHtml +=
-		              '<td>' +
-		              '<img src="' +
-		              photo +
-		              '" width="30%">' +
-		              '</td>' +
-		              '<td>' +
-		              '<strong>상태:</strong> ' + processState + '<br>' +
-		              '<strong>견종:</strong> ' + kind + '<br>' +
-		              '<strong>색:</strong> ' + color + '<br>' +
-		              '<strong>특이사항:</strong> ' + special + '<br>' +
-		              '<button type="button" onclick="update(\'' +
-		              processState +
-		              "', '" +
-		              kind +
-		              "', '" +
-		              color +
-		              "', '" +
-		              special +
-		              "', '" +
-		              photo +
-		              "')\">" +
-		              modify +
-		              '</button>' +
-		              '</td>';
-		          }
-		          infoHtml += '</tr>';
-		        }
-
-	        infoTable.innerHTML = infoHtml;
-
-	      }
-	    };
-	    function update(processState,kind,color,special,photo){
-	    	
-	    	
-	    	
-	    	
-	    }
-	      
-	  </script>
+<body>
+	<h1>Animal List</h1>
+	<button>등록하기</button>
+	<form action="AnimalUpdate.jsp" method="post">
+	<table border="1">
+		<tr>
+			<th>사진</th>
+			<th>유기번호</th>
+			<th>종</th>
+			<th>품종</th>
+			 <th>중성화여부</th>
+            <th>상태</th>
+            <th>발생일</th>
+            <th>무게</th>
+            <th>나이</th>
+            <th>정보수정</th>
+        </tr>
+        <%
+        try {
+        	List<Animal> animalList = animalDao.getInstance().selectAll();
+        	for (Animal animal : animalList) {
+        %>
+        <tr>
+            <td><img src=<%=animal.getFilename()%>
+				alt="Animal Image" width="100" height="100"></td>
+            <td><%=animal.getDesertionNo()%></td>
+            <td><%=animal.getKind()%></td>
+            <td><%=animal.getBreed()%></td>
+            <td><%=animal.getNeuterYn()%></td>
+            <td><%=animal.getProcessState()%></td>
+            <td><%=animal.getHappenDt()%></td>
+            <td><%=animal.getWeight()%></td>
+            <td><%=animal.getAge()%></td>
+            <td><button onclick="location.href='AnimalUpdate.jsp'">수정하기</button>
+            </td>
+        </tr>
+        <%
+        }
+        } catch (Exception e) {
+        out.println("Error: " + e.getMessage());
+        }
+        %>
+    </table>
+    </form>
 </body>
+<script type="text/javascript">
+	
+</script>
 </html>

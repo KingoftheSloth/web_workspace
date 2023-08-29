@@ -1,8 +1,10 @@
 package dao;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 
-import dto.animal;
+import dto.Animal;
 import myBatis.SqlSessionBean;
 
 public class animalDao {
@@ -12,12 +14,18 @@ public class animalDao {
 		return dao;
 	}
 	
-	public int insert(animal vo) {
+	public int insert(Animal vo) {
 		SqlSession mapper = SqlSessionBean.getSession();
 		int idx = mapper.insert("animal.insert",vo);
 		mapper.commit();
 		mapper.close();
 		return idx;
+	}
+	public List<Animal> selectAll() {
+		SqlSession mapper = SqlSessionBean.getSession();
+		List<Animal> list = mapper.selectList("animal.selectAll");
+		mapper.close();
+		return list;
 	}
 }
 
