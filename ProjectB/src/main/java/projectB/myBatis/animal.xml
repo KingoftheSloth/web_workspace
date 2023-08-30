@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="animal">
+	<insert id="insert" parameterType="projectB.dto.Animal">
+	INSERT INTO Animal (desertionNo, filename,happenDt, kind, breed, colorCd,age, weight, processState, sexCd, neuterYn,specialMark,careNm) 
+   VALUES (#{desertionNo},#{filename}, #{happenDt}, #{kind}, #{breed}, #{colorCd}, #{age}, #{weight}, #{processState}, #{sexCd},#{neuterYn},#{specialMark},#{careNm})
+	</insert>
+<select id="selectAll" resultType="projectB.dto.Animal">
+    SELECT * FROM Animal
+</select>
+</mapper>
+ 
+ 
+ 
+ 
+ 
+ 
