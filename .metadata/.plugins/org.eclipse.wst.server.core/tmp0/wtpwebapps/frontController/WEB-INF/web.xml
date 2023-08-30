@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" 
+xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" 
+id="WebApp_ID" version="3.0">
+  <display-name>frontcontroller</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  <!--확장자 없는 url 설계할 때, 프론트 컨트롤러가 / 즉 모든 요청을 처리하므로 필요함. 
+  (확장자 있는 형식일 때는 프론트 컨트롤러가 /*.do 로 설정되므로 필요없음.)
+ 정적 리소스 (이미지, 스타일시트, 자바스크립트 등) 매핑을 서블릿에서 하지 않고 기본형식으로 처리하기   -->
+  <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>*.js</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>*.css</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>*.jpg</url-pattern>
+        <url-pattern>*.png</url-pattern>
+    </servlet-mapping>
+    
+</web-app>

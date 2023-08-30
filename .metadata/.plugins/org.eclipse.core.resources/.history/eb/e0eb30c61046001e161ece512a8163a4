@@ -1,0 +1,8 @@
+CREATE TABLE Animal (
+    desertionNo INT PRIMARY KEY,
+    kind VARCHAR(255),
+    breed VARCHAR(255),
+    neuterYn VARCHAR(1),
+    processState VARCHAR(255),
+    happenDt VARCHAR(8)
+);

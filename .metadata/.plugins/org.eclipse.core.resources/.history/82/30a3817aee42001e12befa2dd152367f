@@ -1,0 +1,37 @@
+package api;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+
+public class ApiExample {
+
+    public static void main(String[] args) {
+        String apiUrl = "http://openapi.animal.go.kr/openapi/service/rest/animalShelterSrvc/shelterInfo";
+        String queryParams = "?ServiceKey=" + apiKey + "&pageNo=1&numOfRows=10&upr_cd=6110000";
+
+        try {
+            URL url = new URL(apiUrl + queryParams);
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            connection.setRequestMethod("GET");
+
+            BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+            String line;
+            StringBuilder response = new StringBuilder();
+
+            while ((line = reader.readLine()) != null) {
+                response.append(line);
+            }
+
+            reader.close();
+            connection.disconnect();
+
+            String responseData = response.toString();
+            System.out.println(responseData); // API 데이터 출력
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}

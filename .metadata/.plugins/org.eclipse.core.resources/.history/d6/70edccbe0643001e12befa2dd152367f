@@ -1,0 +1,13 @@
+const apiKey = "ne53vYZ%2FHctQxGJhVLlcKvtvzi%2FHNfY42exeWo4iiO%2FxrJTgFukzupa98bwUDM318BruDv8y8kWtQDh76hClvQ%3D%3D";
+const apiUrl = "http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sido";
+
+fetch(apiUrl, {
+    method: "GET"
+})
+.then(response => response.json())
+.then(data => {
+    console.log(data); // API 응답 데이터 출력
+})
+.catch(error => {
+    console.error("API 호출 오류:", error);
+});

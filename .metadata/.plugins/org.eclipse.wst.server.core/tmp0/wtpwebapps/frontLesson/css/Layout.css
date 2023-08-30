@@ -1,0 +1,79 @@
+@charset "UTF-8";
+html, body{
+	height:100%;
+	margin: 0;
+}
+/* 블럭요소의 width는 기본이 100% 입니다,
+height는 컨텐츠 크기 만큼. 높이는 padding으로 정하기 */
+header{
+	padding : 60px;
+	background-color:blue;
+	opacity : 0.6;
+	color: white;
+	box-sizing:border-box;
+	min-height :20vh;
+	
+	/* flexbox 레이아웃으로 자식 요소를 정렬하기  */
+	display: flex;
+	/* 수직 정렬 */
+	align-items: center;
+	/* 수평 정렬 */
+	justify-content: center;
+	
+}
+
+.nav{
+	box-sizing: border-box;
+	height : 7vh;
+	min-height : 7vh;
+	
+}
+ul{
+	list-style: none;
+	background-color: brown;
+	opacity : 0.3;
+	margin : 0px;
+	/* 자식 li에 float 속성을 지정했을 떄 필요 합니다 .  */
+	overflow : hidden;
+}
+
+/* .nav{
+	
+} */
+/* ul태그의 자손 */
+.nav a {
+	text-decoration : none;
+	padding : 20px;
+	/* display 해야 패딩이 적용됨 */
+	display : inline-block;
+	color : white;
+	
+}
+
+.nav li{
+	float : left;
+	/* float을 지정하면 부모태그 ul의 높이가 0이되서 안보인다.
+		ul 태그 overflow 를 설정하기  */
+}
+
+.section{
+	padding : 20px;
+	background-color : azure;
+	/* 컨텐츠 내용만큼 높이가 지정되는 것을 
+	최소 높이 지정하여 바꾸기 */
+	min-height: 600px;
+}
+
+.footer{
+	padding : 10px;
+	background-color : navy;
+	color : white;
+	font-size : 80%;
+	text-align : center;
+	
+}
+
+h2 {
+	text-align : center;
+}
+

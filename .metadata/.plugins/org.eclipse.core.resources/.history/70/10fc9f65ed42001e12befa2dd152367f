@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>유기동물 정보</title>
+</head>
+<body>
+    <h1>유기동물 정보</h1>
+    <div id="output"></div>
+    <script>
+        var apiKey = "ne53vYZ%2FHctQxGJhVLlcKvtvzi%2FHNfY42exeWo4iiO%2FxrJTgFukzupa98bwUDM318BruDv8y8kWtQDh76hClvQ%3D%3D";
+        var apiUrl = "https://www.data.go.kr/data/15098915/openapi.do";
+
+        fetch(apiUrl, {
+            method: "GET",
+            headers: {
+                "Authorization": apiKey
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            var outputDiv = document.getElementById("output");
+            outputDiv.innerText = JSON.stringify(data, null, 2); // 2는 들여쓰기 레벨을 나타냄
+        })
+        .catch(error => console.error("API 호출 오류:", error));
+    </script>
+</body>
+</html>

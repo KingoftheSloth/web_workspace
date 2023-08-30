@@ -1,0 +1,13 @@
+const apiKey = "여러분의 API 키";
+const apiUrl = "여러분의 API 호출 URL";
+
+fetch(apiUrl, {
+    method: "GET"
+})
+.then(response => response.json())
+.then(data => {
+    console.log(data); // API 응답 데이터 출력
+})
+.catch(error => {
+    console.error("API 호출 오류:", error);
+});

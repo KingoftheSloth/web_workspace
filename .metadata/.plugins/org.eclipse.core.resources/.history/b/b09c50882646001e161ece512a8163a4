@@ -1,0 +1,21 @@
+<%@page import="dto.ApiExplorer"%>
+<%@page import="dto.Animal"%>
+<%@page import="java.util.List"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>보호소 동물정보 관리 페이지</title>
+</head>
+<h1>동물정보관리</h1>
+<hr>
+<body>
+    <h1>Animal List</h1>
+   
+</body>
+<script>
+</script>
+</body>
+</html>

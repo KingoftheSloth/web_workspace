@@ -1,0 +1,46 @@
+<%@page import="dto.ApiExplorer"%>
+<%@page import="dto.Animal"%>
+<%@page import="java.util.List"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>보호소 동물정보 관리 페이지</title>
+</head>
+<h1>동물정보관리</h1>
+<hr>
+<body>
+    <h1>Animal List</h1>
+    <%
+        try {
+            // Java 코드 실행 및 API 데이터 가져오기
+            List<Animal> animalList = ApiExplorer.fetchAnimalData(); // ApiExplorer 클래스의 메서드를 호출하여 데이터 가져옴
+            
+            // 데이터 표시
+            for (Animal animal : animalList) {
+    %>
+                <div>
+                    <p>번호: <%= animal.getDesertionNo() %></p>
+                    <p>종: <%= animal.getKind() %></p>
+                    <p>품종: <%= animal.getBreed() %></p>
+                    <p>중성화여부: <%= animal.getNeuterYn() %></p>
+                    <p>무게: <%= animal.getWeight() %></p>
+                    <p>나이: <%= animal.getAge() %></p>
+                    <p>상태: <%= animal.getProcessState() %></p>
+                    <p>발생일자: <%= animal.getHappenDt() %></p>
+                    <p>filename: <%= animal.getFilename() %></p>
+                    <hr>
+                </div>
+    <%
+            }
+        } catch (Exception e) {
+            out.println("Error: " + e.getMessage());
+        }
+    %>
+</body>
+<script>
+</script>
+</body>
+</html>

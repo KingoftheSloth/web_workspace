@@ -1,0 +1,25 @@
+@charset "UTF-8";
+
+section h2{
+	color: black;
+}
+table{
+	font : bold;
+	width : 800px;
+	margin : auto;
+	border : 1px solid black;
+}
+
+table label{
+	text-align: center;
+}
+
+th,tr,td{
+	padding: 5px;
+	border : 1px solid black;
+}
+
+td:nth-child(1){
+	text-align: center;
+	width : 45%;
+}

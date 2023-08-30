@@ -1,0 +1,17 @@
+package dto;
+
+import java.util.List;
+
+import dao.animalDao;
+
+public class test {
+	static List<Animal> list2 = animalDao.getInstance().selectAll();
+	public static void main(String[] args) {
+		try {
+			System.out.println(list2);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+}

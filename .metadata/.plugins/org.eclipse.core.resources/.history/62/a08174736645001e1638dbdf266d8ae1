@@ -1,0 +1,9 @@
+package dao;
+
+import dto.animal;
+
+public class animalDao {
+	public animal insert(desertionNo, kind, breed, neuterYn, processState, happenDt) {
+		
+	}
+}

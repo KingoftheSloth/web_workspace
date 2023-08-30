@@ -1,0 +1,56 @@
+jsp의 scope 이 무엇인지 / 종류가 7가지 를 조사(이름,참조타입,의미)
+<<jsp의 scope>>
+scope 이란. 데이터를 사용 할 수 있는 범위/영역
+pageContext request session application 
+*jsp:useBean의 기본 scope="page"입니다.
+여기서 page는 pageContext입니다.
+
+<<jsp의 scope>>
+scope 이란. `데이터`를 사용할수 있는 범위/영역
+pageContext < request < session <  application
+*jsp:useBean 으로 생성된 자바빈 id는 일반 변수와는 다르게 부릅니다. 
+자바빈은 attribute라고 부르기도 합니다. ${} EL 기호를 사용해서 값을 가져올 수 있습니다. 
+getUname(),getAge(), getter 대신에 필드 이름(프로퍼티)만 작성해서 실행합니다.
+*jsp:useBean 은 자바빈 생성은 setAttribute("이름(자바빈id)","값") 메서드 
+                     가져오기는 getAttribute("이름") 메서드
+<<jsp 내장 객체>>
+pageContext : javax.servlet.jsp.PageContext 
+		JSP 페이지에 대한 정보를 저장하고 있는 객체
+		*pageScope 은 현재 jsp페이지 안에서만 정보를 유지 합니다. 
+request  :  javax.servlet.http.HttpServletRequest  
+		웹 브라우저(http)의 요청 정보를 저장하고 있는 객체 
+		*requestScope 은 하나의 요청이 끝날 때까지 정보를 유지 합니다.
+		    ㄴ A.jsp 요청을 다른 B.jsp로 전달할 수 있습니다.
+session : javax.servlet.http.HttpSession 
+		하나의 웹 브라우저의 정보(-`세션 정보`)를 저장하고 있는 객체 
+		*sessionScope 은 브라우저 종료될 때까지 정보를 유지 합니다.
+application : javax.servlet.ServletContext  
+		웹 어플리케이션(Context) 정보를 저장하고 있는 객체 
+		*applicationScope 은 서버에서 애플리케이션이 종료될 때까지 정보를 유지 합니다.
+------------------------------------------------------------------------------------
+response : javax.servlet.http.HttpServletResponse 
+		웹 브라우저의 요청에 대한 `응답 정보`를 저장하고 있는 객체 
+out : javax.servlet.jsp.jsp.jspWriter 
+		JSP 페이지(html 문서) 출력 스트림 객체
+------------------------------------------------------------------------------------
+page : java.lang.Object 
+		JSP 페이지에 대한  자바 클래스 객체
+config : javax.servlet.ServletConfig 
+		JSP 페이지에 대한 설정 정보를 저장하고 있는 객체 
+exception : java.lang.Throwable 
+		JSP 페이지서 예외가 발생한 경우에 사용되는 객체 
+-------------------------------------------------------
+※ scope='request' 일 때는 forward가 같이 사용 됩니다. 
+서블릿을 이용해서 개발하면 '처리' 와 '화면출력(view)' 이 파일이 분리 됩니다.
+'처리' -> 서블릿. .java로 구현 (지금은 먼저 '처리' 기능을.jsp 분리해서 연습하는 중.)
+'화면출력(view)'-> .jsp 로 구현
+MemberList.jsp 가 List.java 에서 dao 실행하고 listView.jsp에서 화면 출력합니다.
+이 때, List,java 에서 list.jsp 로 forward가 되고 데이터도 전달합니다.
+	  List.java에 url을 정해 줍니다. 예시로, list.do (.do는 임의로 붙이는 확장자) 
+-------------------------------------------------------
+향후 계획. 
+1. jsp/서블릿의 객체 위주 
+2. jdbc 의 preparedStatment 인터페이스 사용을 mybatis 프레임웍으로 변경
+3. 외부라이브러리는 최종적으로 build - 배포파일 만들 때 사용됩니다.
+   ㄴ 빌드 도구 (빌드 자동화) : maven(xml), gradle(kotlin)
+4. 게시판 (소스 파일을 가지고 ) 만들기 

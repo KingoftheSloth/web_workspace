@@ -1,0 +1,12 @@
+CREATE TABLE Animal (
+    desertionNo VARCHAR2(20),
+    kind VARCHAR2(255),
+    breed VARCHAR2(255),
+    neuterYn VARCHAR(1),
+    processState VARCHAR2(255),
+    happenDt VARCHAR2(8)
+);
+
+select * from Animal
+
+drop table Animal;

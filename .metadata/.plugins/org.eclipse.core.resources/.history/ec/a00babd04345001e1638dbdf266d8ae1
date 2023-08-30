@@ -1,0 +1,39 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>장바구니</title>
+</head>
+<body>
+<%
+  request.setCharacterEncoding("UTF-8");
+%>
+
+<h1>나의 PICK 목록</h1>
+<table>
+  <tr>
+    <th>사진</th>
+    <th>이름</th>
+    <th>견종</th>
+    <th>색</th>
+    <th>특이사항</th>
+  </tr>
+  <tr>
+    <td>${param.photo }</td>
+    <td>${param.name }</td>
+    <td>${param.kind }</td>
+    <td>${param.color }</td>
+    <td>${param.special }</td>
+  </tr>
+</table>
+<script type="text/javascript">
+var name = "${param.name}";
+var kind = "${param.kind}";
+var weight = "${param.weight}";
+var noticeNo = "${param.noticeNo}";
+var happenPlace = "${param.happenPlace}";
+console.log("${param.name}");
+</script>
+</html>

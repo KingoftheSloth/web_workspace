@@ -1,0 +1,42 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<%@ page import="org.apache.ibatis.session.SqlSession" %>
+<%@ page import="org.apache.ibatis.session.SqlSessionFactory" %>
+<%@ page import="org.apache.ibatis.session.SqlSessionFactoryBuilder" %>
+<%@ page import="java.io.InputStream" %>
+<%@ page import="java.util.List" %>
+
+<%
+  // mybatis-config.xml 설정 파일을 읽어옵니다.
+  InputStream inputStream = Resources.getResourceAsStream("mybatis-config.xml");
+  
+  // SqlSessionFactory를 생성합니다.
+  SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+  
+  // SqlSession을 생성합니다.
+  SqlSession sqlSession = sqlSessionFactory.openSession();
+
+  try {
+    // Animal 객체 생성 및 데이터 설정 (API 데이터 사용)
+    Animal animal = new Animal();
+    animal.setDesertionNo("...");
+    animal.setKind("...");
+    animal.setBreed("...");
+    animal.setNeuterYn("...");
+    animal.setProcessState("...");
+    animal.setHappenDt("...");
+    
+    // Mapper 호출하여 데이터베이스에 저장
+    int insertCount = sqlSession.insert("animal.insert", animal);
+    
+    if (insertCount > 0) {
+      out.println("Data inserted successfully!");
+      sqlSession.commit();
+    } else {
+      out.println("Failed to insert data.");
+    }
+  } finally {
+    sqlSession.close();
+  }
+%>

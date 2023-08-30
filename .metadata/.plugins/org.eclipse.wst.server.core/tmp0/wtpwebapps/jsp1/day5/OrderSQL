@@ -1,0 +1,8 @@
+create table orders(
+email varchar2(30),
+pcode varchar2(20) not null,
+quantity number(3) not null,
+orderdate date default sysdate
+);
+
+insert into orders values('ok@naver.com','JINR123',10,sysdate);

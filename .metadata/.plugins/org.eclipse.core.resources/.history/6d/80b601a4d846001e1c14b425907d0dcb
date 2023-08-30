@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="animal">
+	<insert id="insert" parameterType="dto.Animal">
+		INSERT INTO Animal (desertionNo, kind, breed, neuterYn, weight, age,
+		processState, happenDt, filename)
+		VALUES (#{desertionNo}, #{kind}, #{breed}, #{neuterYn},#{weight},#{age},
+		#{processState}, #{happenDt},#{filename})
+	</insert>
+<select id="selectAll" resultType="dto.Animal">
+    SELECT * FROM Animal
+</select>
+
+<select id="selectOne" resultType="dto.Animal" parameterType="String">
+SELECT * FROM Animal WHERE desertionNo = #{desertionNo}
+</select>
+<update id="update" parameterType="dto.Animal">
+		UPDATE Animal
+		SET
+		#{desertionNo}, 
+		#{kind}, 
+		#{breed},
+		 #{neuterYn},
+		 #{weight},
+		 #{age},
+		#{processState}, 
+		#{happenDt},
+		#{filename}
+		WHERE
+		desertionNo=#{desertionNo}
+	</update>
+</mapper>
+ 
+ 
+ 
+ 
+ 
+ 

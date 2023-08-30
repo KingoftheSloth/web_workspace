@@ -1,0 +1,53 @@
+<<복습>> 
+1. JSP 는 HTML 에 ( 자바 코드 )를 포함한다.
+2. JSP 는 웹서버가 요청 받은 것을 ( WAS - web application server  ) 에게 처리를 위하여 요청을 전달한다. 
+3. JSP 는 요청 처리를 위해 .java 로 변환이 되는데 이것을 ( 서블릿  ) 이라고 한다. 
+4. 3번의 ( 서블릿 ) 을 처리하는 기능이 ( 웹 컨테이너 ) 이다.
+* 톰캣은 웹서버 + WAS ( 웹컨테이너 기능 포함)
+* html, css, js 에 대한 리소스(자원) 요청은 웹컨테이너가 처리하지 않습니다. 
+5. JSP 에는 내장객체가 있습니다. day1에서 사용한 것은 (out) , (request) 입니다.
+6. request 는 사용자가 요청한 정보를 갖고 있습니다. 그 중에서 
+	파라미터는 사용자가 보낸 요청 데이터 입니다. getParameter()
+	
+<<요청 파라미터 보내기 방법 2>> 
++ form 태그 사용. 
+	ㄴ 입력 태그 (input, select) 의 name 속성값이 파라미터 이름 
+								 value 속성값이 파라미터 값	
+	
+	ㄴ a 태그 href 는 요청  method 가 항상 get. href는 서버의주소(받는 곳)
+				get 방식은 자동으로 문자인코딩을 UTF-8로 합니다. 
+	ㄴ form 태그 method 방식을 'get','post' 지정합니다 .
+				post 방식은 문자 인코딩을 직접 설정해야 합니다. 
+	 			action 속성값으로 서버의 주소를 정합니다. 
+	ㄴ input 의 disabled가 true 이면 파라미터 전송이 안됩니다. 
+			   readonly가 true 일 때 파라미터 전송 가능. 편집만 불가
+	ㄴ input type = hidden(숨김) 일 때는 화면 표시는 안되고 
+								  파라미터 전송은 합니다. 
+<<jsp 액션태그>>
+jsp 안에서 내장객체를 이용하여 작성하는 자바코드 대신에 사용하는 태그 
+
+1. jsp:include
+	ㄴ 외부 jsp 파일을 포함시킵니다. 컴파일 된 .class를 포함합니다.
+	ㄴ 여러 jsp 파일에서 공통적으로 사용되는 코드 부분을 
+	   반복해서 코드 작성하지 않고 파일로 생성해서 include 합니다. 
+	   
+2. jsp:param
+ 	ㄴ jsp:include 에서 포함시키는 jsp에 파라미터를 전달하기
+ 	
+ 	
+3. jsp:useBean 태그를 - 속성 id : 자바빈의id. 변수명 , class : 자바빈(객체)으로 만들어질 패키지명.클래스 지정
+		scope : 4가지 자바빈즈가 사용할 수 있ㄴ
+		
+		ㄴ jsp:setProperty : 값 저장. getParameter 메서드 + setter 메서드 실행
+		         ㄴ  속성 종류 (property : 자바빈을 만든 클래스의 필드(변수) 이름
+		         			  name : 자바빈 id랑 설정을
+		         			  param : input 태그의 name
+		         			  property="*" 로 하면 모든 파라미터를 가져올 수 있습니다.
+		         			  (단, input 태그 name 속성, dto 클래스의 필드명을 같도록 합니다.)
+		ㄴ jsp:getProperty : 출력
+		ㄴ 기본생성자, setter,getter 있는지 확인
+RegisterSave.jsp 에서 사용해보세요.(getParameter 대신에 사용합니다.) 	
+
+
+							 
+ 

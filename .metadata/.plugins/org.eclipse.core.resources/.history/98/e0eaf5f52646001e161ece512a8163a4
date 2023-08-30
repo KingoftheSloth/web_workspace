@@ -1,0 +1,39 @@
+<%@page import="dto.ApiExplorer"%>
+<%@page import="dto.Animal"%>
+<%@page import="java.util.List"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>보호소 동물정보 관리 페이지</title>
+</head>
+<h1>동물정보관리</h1>
+<hr>
+<body>
+ <h1>Animal List</h1>
+    <table>
+        <tr>
+            <th>Desertion No</th>
+            <th>Kind</th>
+            <th>Breed</th>
+            <!-- 나머지 속성도 추가 -->
+        </tr>
+        <c:forEach var="animal" items="${animalList}">
+            <tr>
+                <td>${animal.desertionNo}</td>
+                <td>${animal.kind}</td>
+                <td>${animal.breed}</td>
+                <!-- 나머지 속성도 추가 -->
+            </tr>
+        </c:forEach>
+    </table>
+</body>
+</html>
+위의 예시에서는 Servlet에서 DB에서 데이터를 조회한 후 JSP로 해당 데이터를 전달하여 테이블 형태의 웹 페이지를 생성합니다. JSP 파일에서는 JSTL (JavaServer Pages Standard Tag Library)을 사용하여 데이터를 동적으로 표시하고 있습니다. JSTL을 사용하려면 JSTL 라이브러리를 프로젝트에 추가해야 합니다.
+
+
+
+
+

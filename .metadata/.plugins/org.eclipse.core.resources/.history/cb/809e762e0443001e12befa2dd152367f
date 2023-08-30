@@ -1,0 +1,15 @@
+
+var xhr = new XMLHttpRequest();
+var url = 'http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sido'; /*URL*/
+var queryParams = '?' + encodeURIComponent('ne53vYZ%2FHctQxGJhVLlcKvtvzi%2FHNfY42exeWo4iiO%2FxrJTgFukzupa98bwUDM318BruDv8y8kWtQDh76hClvQ%3D%3D') + '='+'서비스키'; /*Service Key*/
+queryParams += '&' + encodeURIComponent('numOfRows') + '=' + encodeURIComponent('20'); /**/
+queryParams += '&' + encodeURIComponent('pageNo') + '=' + encodeURIComponent('1'); /**/
+queryParams += '&' + encodeURIComponent('_type') + '=' + encodeURIComponent('json'); /**/
+xhr.open('GET', url + queryParams);
+xhr.onreadystatechange = function () {
+    if (this.readyState == 4) {
+        alert('Status: '+this.status+'nHeaders: '+JSON.stringify(this.getAllResponseHeaders())+'nBody: '+this.responseText);
+    }
+};
+
+xhr.send('');

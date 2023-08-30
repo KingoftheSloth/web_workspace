@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+/* 선택자는 태그 등 다양한 형식이 있습니다.  */
+	/* th,td 태그에 설정하는 CSS style   */
+th,td{
+border: 1px solid gray;
+padding : 20px 10px;
+text-align: center;
+}
+th{
+background-color: tomato;
+color : white;
+}
+/* td 태그들 중에 3번 째 자식태그들은 텍스트 정렬을 왼쪽으로 합니다. */
+td:nth-child(3){
+text-align: left;
+}
+
+tr:nth-child(5){
+background-color: teal;
+color : white;
+}
+table{
+border-collapse: collapse;
+margin : auto;
+margin-top : 60px;
+}
+</style>
+</head>
+<body>
+<!-- table 태그에 스타일 설정해보기  -->
+<h3>table 태그에 스타일 설정해보기</h3>
+<table>
+         <tr>  <!-- style 태그에서 설정한 width 는 무시되고 태그의 값이 적용됩니다. 단,값이 작아지는 것은 적용 안됨.-->
+            <th>번호</th>
+            <th style="width:200px;">주요개념</th>
+            <th style="width:400px;">설명</th>
+         </tr>
+         <tr>   <!-- tr:행(줄) -->
+            <td>1</td>      <!-- td:열(칸) -->
+            <td>http,https</td>
+            <td>HTTP는 HTML 문서와 같은 리소스들을 가져올 수 있도록 해주는 프로토콜입니다.
+             HTTP는 웹에서 이루어지는 모든 데이터 교환의 기초이며, 클라이언트-서버 프로토콜이기도 합니다. </td>
+         </tr>
+         <tr>   <!-- tr:행(줄) -->
+            <td>2</td>      <!-- td:열(칸) -->
+            <td>html</td>
+            <td>HTML(HyperText Markup Language)은 웹을 이루는 가장 기초적인 구성 요소로, 
+            웹 콘텐츠의 의미와 구조를 정의할 때 사용합니다</td>
+         </tr>
+         <tr>   <!-- tr:행(줄) -->
+            <td>3</td>      <!-- td:열(칸) -->
+            <td>css</td>
+            <td>CSS(Cascading Stylesheets – 종속형 스타일시트) 
+            HTML이 콘텐츠의 구조와 의미를 정의하는 반면 CSS는 스타일과 레이아웃을 지정합니다. 예를 들어, CSS를 사용하면 
+            콘텐츠의 글꼴, 색상, 크기 및 간격을 변경하거나, 여러 개의 열로 분할하거나, 
+            애니메이션이나 기타 장식 효과를 추가할 수 있습니다.
+            </td>
+         </tr>
+         <tr>   <!-- tr:행(줄) -->
+            <td>4</td>      <!-- td:열(칸) -->
+            <td>tomcat</td>
+            <td>톰캣은 웹 서버와 연동하여 실행할 수 있는 자바 환경을 제공하여 
+            자바서버 페이지(JSP)와 자바 서블릿이 실행할 수 있는 환경을 제공하고 있다. 
+            톰캣은 관리툴을 통해 설정을 변경할 수 있지만, XML 파일을 편집하여 설정할 수도 있다. 
+            그리고, 톰캣은 HTTP 서버도 자체 내장하기도 한다.</td>
+         </tr>
+         <tr>   <!-- tr:행(줄) -->
+            <td>5</td>      <!-- td:열(칸) -->
+            <td>port</td>
+            <td>포트(port)는 운영 체제 통신의 종단점이다. 이 용어는 하드웨어 장치에도 사용되지만,
+             소프트웨어에서는 네트워크 서비스나 특정 프로세스를 식별하는 논리 단위이다. 
+             주로 포트를 사용하는 프로토콜은 전송 계층 프로토콜이라 하며,
+             예를 들어 전송 제어 프로토콜(TCP)와 사용자 데이터그램 프로토콜(UDP)가 있다. 
+             각 포트는 번호로 구별되며 이 번호를 포트 번호라고 한다. 예시 : 오라클 1521 , 톰캣 8080 등등</td>
+         </tr>
+   </table>
+</body>
+</html>

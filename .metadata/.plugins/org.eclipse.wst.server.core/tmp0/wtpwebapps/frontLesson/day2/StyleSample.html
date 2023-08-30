@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<!-- html 요소(태그) : html문서의 최상위 부모 요소(태그) 
+	 		html 문서를 구성하는 요소(태그)들은 계층구조(트리구조) 입니다.
+	 		요소들의 중첩이 있는 형식
+-->
+<html lang="ko">
+<!-- 웹브라우저 screen reader 기능을 위해 lang 속성으로 html 페이지의 주요언어 표시. -->
+<head> <!-- head 요소(태그) : html 문서의 정보들로 구성 -->
+    <meta charset="UTF-8">
+    <title>CSS 기본 속성들</title>
+</head>
+<body>  
+    <h3>CSS</h3>
+    <blockquote>
+        HTML이 콘텐츠의 구조와 의미를 정의하는 반면 CSS는 스타일과 레이아웃을 지정합니다. 
+        예를 들어, CSS를 사용하면 콘텐츠의 글꼴, 색상, 크기 및 간격을 변경하거나, 여러 개의 열로 분할하거나, 
+        애니메이션이나 기타 장식 효과를 추가할 수 있습니다.
+    </blockquote>
+    <dl>
+        <dt>Cascading Stylesheets (종속형 스타일시트)</dt>
+        <dd>
+            - HTML이 콘텐츠의 구조와 의미를 정의하는 반면 CSS는 스타일과 레이아웃을 지정합니다. 
+            예를 들어, CSS를 사용하면 콘텐츠의 글꼴, 색상, 크기 및 간격을 변경하거나, 여러 개의 열로 분할하거나, 
+        애니메이션이나 기타 장식 효과를 추가할 수 있습니다.
+        </dd>
+        <dt>사용 방법</dt>
+        <dd>
+            - 태그의 style 속성으로 설정하거나 head 태그 안에서 style 태그로 작성합니다.
+            - style 태그는 어떤 요소에 적용할 것인지 선택자(selector)를 사용합니다.
+        </dd>
+    </dl>
+    <hr>
+    <h4>예시</h4>
+    <h1 style="color: chocolate;">heading 제목 1</h1>  <!-- heading : 제목,표지  -->
+    <h2 style="background-color: beige;padding-top: 20px;">제목 2</h2>
+    <h3 style="border-width: 1px;border-style:  solid;border-color:  black;">제목 3</h3>
+    <h4 style="border: 1px solid black;width: 600px;padding: 40px 20px;">제목 4: : html 기본 태그들을 확인해 보겠습니다.</h4>
+    <h5 style="border: 1px solid black;width: 600px;padding: 40px 20px;margin-left: 100px;">제목 5</h5>
+    <h6 style="border: 1px solid black;width: 600px;padding: 20px;margin: auto;">제목 6</h6>
+    <div style="border: 1px dotted gray; width : 80%;padding: 10px; margin: 20px auto;background-color: #ddd;">paragraph 단락. 텍스트 컨텐츠를 담는 문단 요소입니다. 문서(즉 <em>브라우저</em>)의 
+    	<strong>너비에 따라</strong> 자동으로 줄바꿈을 합니다. html 문서에서는 엔터를 입력해도
+        줄바꿈이 되지 않습니다. 단락 내에서 임의로 줄바꿈을 하려면 <br>태그를 사용합니다. 문자로 !@#$%^&*()_-+={}[]|\~`<>,.?/'":; 과 같은 기호를 출력
+        하려면 잘되는지 확인해보세요. 예전 브라우저에서는 표시가 안되고 문제가 생기지만 지금은 대체로 브라우저에서 잘 표시해 줍니다. 그러나,
+        <div style ="margin:auto;width:300px;">
+        <img src = "https://www.readersnews.com/news/photo/202305/108912_78151_1733.jpg" width=100%>
+        <!-- 부모태그 div 기준으로 100%  -->
+        <!-- img 태그에 margin 을 값으로는 가능. auto 는 안됩니다.  -->
+        </div>
+        </div>
+    <span style="width:400px;height:100px; padding:20px; border:1px solid green">일반적인 인라인 요소 span 테스트
+    </span>
+    <strong style="width:400px;height:100px;padding:20px;border:1px solid green; margin:20px;
+    display: inline-block;">strong 인라인 요소 테스트 </strong><br>
+    
+    <span style="width:400px;height:100px;border:1px solid green;
+    display: inline-block;">span 테스트 2</span>
+    <h4>순서 있는 목록 ordered list 만들기</h4>
+    <ol style="list-style: lower-alpha;border-top-width: 2px;border-top-style: dashed;border-top-color: blue;">
+        <li>항목 A</li>
+        <li>항목 B</li>
+        <li>항목 C</li>
+        <li>항목 D</li>
+    </ol>
+    <h4>순서 없는 목록 unordered list 만들기</h4>
+    <ul style="list-style: square;">
+        <li>항목 A</li>
+        <li>항목 B</li>
+        <li>항목 C
+        	<ol>
+				<li>서브항목 C-1</li>        	
+				<li>서브항목 C-2</li>        	
+				<li>서브항목 C-3</li>        	
+				<li>서브항목 C-4</li>        	
+        	</ol>
+        </li>
+        <li>항목 D</li>
+    </ul>
+</body>
+</html>

@@ -1,0 +1,15 @@
+package dto;
+
+
+public class animal {
+
+	private long desertionNo;
+	private String kind;
+	private String breed;
+	private String age;
+	private int weight;
+	private String sex;
+	private String neuterYn;
+	private String special;
+
+}

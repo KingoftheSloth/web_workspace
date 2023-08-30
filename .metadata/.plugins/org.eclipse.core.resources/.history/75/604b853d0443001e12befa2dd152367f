@@ -1,0 +1,29 @@
+var xhr = new XMLHttpRequest();
+var url = 'http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sido'; /*URL*/
+var queryParams = '?' + encodeURIComponent('ServiceKey') + '=' + encodeURIComponent('인증키'); /*Service Key*/
+queryParams += '&' + encodeURIComponent('numOfRows') + '=' + encodeURIComponent('20'); /**/
+queryParams += '&' + encodeURIComponent('pageNo') + '=' + encodeURIComponent('1'); /**/
+queryParams += '&' + encodeURIComponent('_type') + '=' + encodeURIComponent('json'); /**/
+xhr.open('GET', url + queryParams);
+xhr.onreadystatechange = function () {
+    if (this.readyState == 4) {
+        if (this.status === 200) {
+            var responseData = JSON.parse(this.responseText);
+            displayData(responseData); // 데이터 출력 함수 호출
+        } else {
+            console.error('API 호출 오류:', this.status);
+        }
+    }
+};
+
+xhr.send('');
+
+function displayData(data) {
+    var dataContainer = document.getElementById("dataContainer");
+    dataContainer.innerHTML = "<h2>API 데이터 목록</h2>";
+
+    data.items.forEach(item => {
+        const content = `<p><strong>품종:</strong> ${item.kind}, <strong>설명:</strong> ${item.state}</p>`;
+        dataContainer.innerHTML += content;
+    });
+}

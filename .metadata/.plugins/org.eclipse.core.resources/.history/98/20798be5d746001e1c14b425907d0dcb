@@ -1,0 +1,24 @@
+<%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
+<%@page import="dao.animalDao"%>
+<%@page import="dto.Animal"%>
+<%@page import="java.net.InetAddress"%>
+<%@page import="java.net.Inet4Address"%>
+<%@page import="java.sql.Timestamp"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%
+    request.setCharacterEncoding("UTF-8");    
+ String desertionNo =request.getParameter("desertionNo");
+Animal animal = animalDao.getInstance().selectOne(desertionNo);  
+%>
+<script type="text/javascript">
+var kind = '<%= request.getParameter("kind") %>';
+var breed = '<%= request.getParameter("breed") %>';
+var neuterYn = '<%= request.getParameter("neuterYn") %>';
+var weight = '<%= request.getParameter("weight") %>';
+alert("수정이 완료되었습니다.")
+console.log(kind);
+console.log(breed);
+console.log(neuterYn);
+console.log(weight);
+   </script>

@@ -1,0 +1,7 @@
+alter table j_custom modify password varchar2(64);
+
+create table orders(
+email varchar2(30),
+pcode varchar2(20) not null,
+quantity number(3) not null,
+orderdate date default sysdate);

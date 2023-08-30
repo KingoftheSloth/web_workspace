@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ObjectArraySample</title>
+<style type="text/css">
+table {
+	width: 800px;
+}
+
+th {
+	width: 13%;
+	background-color: tomato;
+	color: white;
+}
+
+th, td {
+	border: 1px solid tomato;
+	padding: 7px 12px;
+	text-align: center;
+}
+</style>
+</head>
+<body>
+	<hr>
+	<h4>오늘의 스케쥴</h4>
+	<button id="toAddBtn">스케쥴추가</button>
+	<button id="toAddBtn2">스케쥴추가(DOM)</button>
+	<button id="sortBtn">정렬</button>
+	<table>
+		<tr>
+			<th>TIME</th>
+			<th>TODO</th>
+		</tr>
+		<tbody id="contents">
+			<!-- 오브젝트 배열의 요소값을 가져다가 tr태그 1개 행 만들기를 배열 요소 만큼 반복-->
+
+
+		</tbody>
+	</table>
+
+	<script type="text/javascript">
+	
+
+const schedules = [{time:'09:00',todo:'수업'},
+					{time:'11:00',todo:'과제'},
+					{time:'12:30',todo:'점심식사'},
+					{time:'14:00',todo:'주간회의'},
+					{time:'16:45',todo:'자료조사'}]
+					
+				
+let result =''
+setView()
+/* const 로 선언한 함수는 호출하기 전에 미리 정의가 되어 있어야 합니다.
+   function 정의한 함수는 자바스크립트에서 함수 끌어올리기.(함수 hoisting) function 정의는 
+   맨 앞으로
+*/
+
+function setView(){ //정렬 후에 다시 배치하기 위해 함수로 정의
+	result = ''
+	schedules.forEach((obj)=>{
+		console.log(obj)
+		console.log(obj.time)
+		console.log(obj.todo)
+		result+=`<tr><td>${obj.time}</td><td>${obj.todo}</td></tr>`
+	})
+	document.getElementById('contents').innerHTML  = result
+}
+
+function tableMake(){
+let result = ''
+
+schedules.forEach(function(object){
+	console.log(object)
+	result += `<tr><td>${object.time}</td>
+	<td>${object.todo}</td></tr>`
+})
+	document.getElementById('contents').innerHTML = result
+}
+
+//방법 1
+document.getElementById('toAddBtn').addEventListener('click',()=>{
+	
+	const time = prompt('시간을 입력하세요')
+	const todo = prompt('시간을 입력하세요')
+	
+	schedules.push({time,todo})
+	console.log(schedules)
+	tableMake()
+})
+
+//방법 2
+/* document.getElementById('toAddBtn2').addEventListener('click',()=>{
+	
+	const atime = prompt('시간을 입력하세요')
+	const atodo = prompt('할일을 입력하세요')
+	
+	const tr1 = document.querySelector('tbody:last-child')
+	console.log(tr1)
+	const newtd = document.createElement("tr")
+	newtd.innerHTML = `<td>${atime}</td><td>${atodo}</td>`
+	tr1.appendChild(newtd)
+	
+	tableMake()
+}) */
+
+//방법 2 강사님 답안
+
+
+ document.getElementById('toAddBtn2').addEventListener('click',()=>{ 
+ const atime = prompt('시간을 입력하세요')
+ const atodo = prompt('할일을 입력하세요')
+
+const temp = {time:atime,todo:atodo}
+	schedules.push(temp)
+	
+	const newtr = document.createElement('tr') 
+	const newtd = `<td>${atime}</td><td>${atodo}</td>`
+		
+		newtr.innerHTML = newtd
+		document.getElementById('contents').appendChild(newtr)
+		// tbody(id=contents)마지막 자식요소로 tr 태그 추가하기
+	})
+
+	  document.getElementById('sortBtn').addEventListener('click',function(){
+		  //정렬 
+		  // 배열의 sort는 문자열 사전순 정렬. 정수값 정렬은 sort 안에 콜백함수 정의. return a-b; (예시)
+		  // console.log('09:00'-'11:00') //NaN, return a.time-btime은 NaN 입니다.
+		  
+	schedules.sort((a,b)=>{
+		//a,b 중에 작은 값이 무엇인지 정렬 알고리즘이 알 수 있도록 리턴 설정
+		if(a.time<b.time) //a,b 객체의 time 프로퍼티 비교(시간순 정렬) 
+			return -1
+		else return 1
+		  })
+		  console.log(schedules)
+			setView()
+	  })
+					
+</script>
+</body>
+</html>

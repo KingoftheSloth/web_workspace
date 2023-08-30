@@ -1,0 +1,22 @@
+import java.io.IOException;
+import java.util.List;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import dto.Animal;
+import dao.animalDao;
+
+public class AnimalServlet extends HttpServlet {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        // DB에서 데이터 조회
+        List<Animal> animalList = animalDao.getInstance().selectAll(); // 예시로 selectAll() 메서드 사용
+        
+        // 조회한 데이터를 request 객체에 저장
+        request.setAttribute("animalList", animalList);
+        
+        // JSP로 포워딩
+        request.getRequestDispatcher("/animalList.jsp").forward(request, response);
+    }
+}

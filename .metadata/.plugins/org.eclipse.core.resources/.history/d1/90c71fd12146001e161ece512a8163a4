@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="animal">
+	<!-- API에서 받아온 데이터를 저장하기 -->
+  <insert id="insert" parameterType="dto.Animal">
+    INSERT INTO Animal (desertionNo, kind, breed, neuterYn, weight, age, processState, happenDt, filename)
+    VALUES (#{desertionNo}, #{kind}, #{breed}, #{neuterYn},#{weight},#{age} , #{processState}, #{happenDt},#{filename})
+  </insert>
+
+	private long desertionNo;
+	private String kind;
+	private String breed;
+	private String neuterYn;
+	private String weight;
+	private String age;
+	private String processState;
+	private String happenDt;
+	private String filename;
+</mapper>
+ 
+ 
+ 
+ 
+ 
+ 

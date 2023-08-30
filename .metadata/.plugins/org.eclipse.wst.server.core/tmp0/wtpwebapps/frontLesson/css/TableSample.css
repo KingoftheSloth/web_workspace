@@ -1,0 +1,28 @@
+@charset "UTF-8";
+	th,td{
+		border: 1px solid gray;
+		width : 100px;
+		padding : 10px;			/* 상하좌우 여백 모두 10px  */	
+	}
+	th:nth-child(2) { width: 300px; }
+	th:nth-child(3) { width: 200px; }
+	th {  /* th: 텍스트 정렬이 중앙으로 합니다.(기본) */
+		background-color: rgb(92,214,92);
+		color: white;
+	}
+	/* 선택자 class 또는 id 사용 */
+	/* gAttr 이라는 클래스 이름으로 적용되는 스타일 3가지 정의 */
+	.gAttr {
+		color : blue;
+		font-weight: bold;
+		font-size: 120%;  /* 기본글씨 크기에서 1.2배. */
+	}
+	/* gId라는 id 이름으로 적용되는 스타일 1가지 정의 */
+	#gId{
+		font-style: italic;
+	}
+	/* gClass 라는 클래스 이름으로 적용되는 스타일 1가지 정의 */
+	.gClass {
+		text-decoration: underline;
+	}
+	/* html 문서의 구조는 계층구조(부모-자식관계). 120% 와 같이 비율을 정할 때는 부모 태그 기준 비율입니다. */

@@ -1,0 +1,37 @@
+@charset "UTF-8";
+/*class를 선택자로 할 때는 기호를 . 을 사용합니다. */
+main{
+	width : 70%;
+	margin : auto;
+}
+div.gallery{
+	border : 1px solid #ddd;
+	margin : 10px;
+	box-shadow :-5px -5px 5px gray;
+	/* 이어지는 블록 요소를 좌측으로 이어지도록 합니다.  */
+	float : left;
+}
+/* gallery 클래스의 자손 중에 img 태그에 적용하는 선택자 : 기호는 공백*/
+
+.gallery img {
+	width : 200px;
+	height : 200px;
+	object-fit: cover;
+	/* 이미지 비율을 유지하면서 적정하게 지정된 크기로 보여줍니다. */
+}
+/*  마우스가 요소위로 올라가면 보이는 스타일  */
+div.gallery:hover{
+	border : 1px solid red;
+}
+
+div.desc {
+	width: 200px;
+	height: 50px;
+	padding: 10px;
+	text-align: center;
+	font-size: 80%;
+	/* 크기를 계산할 때 너비와 높이가 padding, border를 포함하도록 합니다.  */
+	box-sizing: border-box;
+}
+
+  

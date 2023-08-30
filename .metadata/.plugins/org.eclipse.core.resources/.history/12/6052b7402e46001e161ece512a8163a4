@@ -1,0 +1,32 @@
+package myBatis;
+
+import static org.junit.Assert.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
+
+import java.util.List;
+
+import org.apache.ibatis.session.SqlSession;
+import org.junit.Test;
+
+import dto.Animal;
+import myBatis.SqlSessionBean;
+
+
+class SqlSessionTest {
+
+	@Test
+	void connect() {
+SqlSession sqlsession = SqlSessionBean.getSession();
+assertNotNull(sqlsession);
+	}
+
+	@Test
+	public List<Animal> selectAll() {
+		SqlSession mapper = SqlSessionBean.getSession();
+		List<Animal> list = mapper.selectList("animal.selectAll");
+		mapper.close();
+		return list;
+	}
+		
+	}
+

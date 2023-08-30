@@ -1,0 +1,17 @@
+
+7월 27, 2023 15:11:03.975 NEW SESSION
+7월 27, 2023 15:11:03.975 [5512:6400:0727/151103.974:ERROR:backend_impl.cc(1040)] Critical error found -8
+7월 27, 2023 15:11:06.850 [5512:5504:0727/151106.850:ERROR:feature_processor_state.cc(39)] Processing error occured: model WebAppInstallationPromo failed with UkmEngineDisabled, message: 
+
+8월 10, 2023 10:27:55.938 NEW SESSION
+8월 10, 2023 10:27:55.938 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+8월 10, 2023 10:29:34.698 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+8월 10, 2023 10:30:26.78 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+8월 10, 2023 10:30:58.939 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+8월 10, 2023 10:41:30.345 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+8월 10, 2023 10:41:46.15 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+8월 10, 2023 10:42:17.208 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+8월 10, 2023 10:43:11.561 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+8월 10, 2023 10:43:17.982 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+8월 10, 2023 15:48:12.399 [3632:6628:0810/154812.399:ERROR:sharing_service.cc(252)] Device un-registration failed with fatal error
+8월 10, 2023 15:48:13.667 [3632:6628:0810/154813.667:ERROR:device_event_log_impl.cc(222)] [15:48:13.667] Bluetooth: bluetooth_adapter_winrt.cc:1058 Getting Default Adapter failed.

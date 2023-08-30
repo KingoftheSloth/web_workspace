@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="animal">
+
+	<!-- 메인글 목록 가져오기 - 할일 : 한번에(즉 한페이지에) 글 10개씩 가져오도록 변경해야 합니다. -->
+	<select id="list" resultType="org.iclass.dto.Community">
+		SELECT *
+		FROM community
+	</select>
+
+	
+	</insert>
+</mapper>
+ 
+ 
+ 
+ 
+ 
+ 

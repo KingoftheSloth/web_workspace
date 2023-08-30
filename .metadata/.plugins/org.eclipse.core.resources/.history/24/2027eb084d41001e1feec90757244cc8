@@ -1,0 +1,30 @@
+현 상황의 문제점
+
+839 hongGD
+
+주소창에 글번호를 치면 글쓴이가 아니더라도 수정이 가능합니다.
+
+
+1. 수정버튼은 로그인한 사용자의 글만 보이지만
+url 에 http://localhost:8081/jspBoard/community/update.jsp?idx=863&page=6
+의 idx를 '로그인한 사용자의 글이 아닌' 아무값이나 입력하면 수정이 가능합니다.
+
+2. 로그인을 안하면 글쓰기에서 로그인하도록 하지만
+url에서 http://localhost:8081/jspBoard/community/writeAction.jsp?title=테스트&content=ㅋㅋㅋ
+&writer=hongGD
+를 "로그인 안한 상태"에서 직접 URL에 입력하고 실행하면 됩니다. 
+
+*** 개선(※중요) : 글번호 표시 기본키값 대신에 행번호(rownum)을 글목록에 표시하는 것을 추천합니다.
+		  post 방식으로 바꿀 것 update.jsp , delete,jsp 
+		  post  방식으로 요청이 왔는지 확인하고 처리하기 - updateAction.jsp, writeAction,jsp , loginAction,jsp
+
+해결방법 첫번 째 : 항상 먼저 update.jsp, updaateAction.jsp, writeAction.jsp 등 필요한 곳에서 session 을 검사합니다. 
+			=> 로그인 세션 저장값을 비교해서 일치하지않으면 exception을 발생시킵니다. 
+			=> exception 또는 404오류가 생겼을 때 보일 페이지 error.jsp를 web.xml 에 설정
+
+해결방법 두번 쨰 : 모든 필요한 소스파일에 new Exception() 처리하는 것도 번거롭습니다.
+       		=> 웹컨테이너에는 필터(filter) : 요청에 대한 처리를 하기 전에 요청에 대한 검사와 사전 작업을 할 수 있음.   	
+※ 인증 : 로그인과 같이 사용자 확인
+※ 인가 : 권한. 예를 들면 로그인 사용자가 작성한 글만 수정 권한이 있다. (인가)       		
+       		
+       		

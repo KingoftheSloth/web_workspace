@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>숙박일수 계산하기</title>
+<link rel="stylesheet" href=../css/memberRegister.css?v=3></link>
+</head>
+<body>
+<body>
+<body>
+<header>
+<h2>쇼핑몰 회원 관리 ver1.0</h2></header>
+<nav>
+<ul>
+<li><a href="memberRegister.html">회원등록</a></li>
+<li><a href="memberUpdate.html">회원목록조회/수정</a></li>
+<li><a href="memberSales.html">회원매출조회</a></li>
+<li><a href="index.html">홈으로</a></li>
+</ul>
+</nav>
+<section>
+<h2>홈쇼핑 회원 등록</h2>
+<form action= "">
+<table>
+<tr>
+	<td><label for="lblNum" >회원번호(자동발생)</label></td>
+	<td><input size = "15" type ="text" id="lblNum" value="100006" name="cusNo"></td>
+</tr>
+<tr>
+	<td><label for="lblName" >회원성명</label></td>
+	<td><input size = "15" type ="text" id="lblName" value="차공단" name="name"></td>
+</tr>
+<tr>
+	<td><label for="lblPhone" >회원전화</label></td>
+	<td><input size = "30" type ="text" id="lblPhone" value="010-1111-7777" name="phoneNum"></td>
+</tr>
+<tr>
+	<td><label for="lblAdd" >회원주소</label></td>
+	<td><input size = "40" type ="text" id="lblAdd" value="제주도 제주시 감나무골" name="addr"></td>
+</tr>
+<tr>
+	<td><label for="lblreg" >가입일자</label></td>
+	<td><input size = "15" type ="date" id="lblreg" value="20151211" name="regidate">
+	<span><br>개인정보 제공 동의 종료일자:</span><span id="protAgree"></span></td>
+</tr>
+<tr>
+	<td><label for="lblgrade" >고객등급[A:VIP,B:일반,C:직원]</label></td>
+	<td><input size = "15" type ="text" id="lblgrade" value="C" name="grade"></td>
+</tr>
+<tr>
+	<td><label for="lblccode" >도시코드</label></td>
+	<td><input size = "15" type ="text" id="lblccode" value="60" name="cityCode"></td>
+</tr>
+<tr>
+	<td colspan="2"><button onclick="alert('회원등록이 완료 되었습니다.')">등록</button>
+	<button>조회</button>
+	</td>
+</tr>
+</table>
+<footer>
+<h4>HRDKOREA Copyright &copy;2022 All rights reserved. Human
+			Resources Development Service of Korea.</h4>
+</footer>
+<!-- 1. 입실날짜는 오늘 날짜로 초기화 합니다.
+	 2. 퇴실날짜는 선택한 숙박일수 + 입실날짜로 합니다. 8/2 입실 + 3박 = 8/5
+	 3. 퇴실날짜는 select 태그에서 숙박일수 선택하면 계산해서 표시합니다.
+	 							ㄴ click, change 이벤트
+	 4. 입실날짜는 오늘 이전 날짜는 선택을 못하도록 해야합니다.(input 태그 min 속성)
+	 	입실날짜는 최대 오늘 ~3달 이후로만 설정할 수 있습니다. (input 태그 max 속성) 
+	 	**참고 : input type = date 인 경우 value는 년도 4자리-월2자리-일2자리로 설정
+	 	-->
+<script type="text/javascript">
+function dateFormat(xdate,symbol){
+const years = xdate.getFullYear()
+const month = (xdate.getMonth()+1).toString().padStart(2,'0')
+const days = xdate.getDate().toString().padStart(2,'0')
+
+let result = [years,month,days].join(symbol)
+
+return result 
+	
+}
+let today = new Date()
+
+const regdate = dateFormat(today,'-')
+console.log(regdate)
+
+document.getElementById('lblreg').value = regdate
+document.forms[0].regidate.min = regdate
+
+document.forms[0].regidate.addEventListener(click,function (){
+today = new Date(document.forms[0].regidate.value)
+console.log(today)
+today.setFullYear(today.getFullYear()+1)
+document.getElementById('protAgree').innerHTML = dateFormat(today,'.')
+
+})
+</script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>장바구니</title>
+</head>
+<body>
+<h1>나의 PICK 목록</h1>
+<table>
+<ul>
+   <li>${param.name }</li>
+  <li>${param.kind }</li>
+  <li>${param.weight }</li>
+  <li>${param.noticeNo }</li>
+  <li>${param.happenPlace }</li>
+</ul>
+</table>
+</body>
+<script type="text/javascript">
+console.log(${param.name})
+
+</script>
+</html>

@@ -1,0 +1,12 @@
+package dto;
+
+import java.util.List;
+
+import dao.animalDao;
+
+public class test {
+	List<Animal> list2 = animalDao.getInstance().selectAll();
+	public static void main(String[] args) {
+		System.out.println(list2);
+	}
+}

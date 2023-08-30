@@ -1,0 +1,9 @@
+create  table wproduct (
+pname varchar2(40),
+price number,
+createAt date default sysdate,
+picture varchar2(50) -- 상품이미지의 파일명
+
+);
+
+alter table wproduct modify picture varchar2(200);

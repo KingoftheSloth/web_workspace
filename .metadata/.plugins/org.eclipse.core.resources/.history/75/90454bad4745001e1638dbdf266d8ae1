@@ -1,0 +1,20 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>유기동물보호소 관리자페이지 </title>
+</head>
+<body>
+<table>
+				<tr>
+					<th><a href=''>홈</a></th>
+					<th><a href=''>동물관리</a></th>
+					<th><a href=''>입양요청</a></th>
+					<th><a href=''>Mypage</a></th>
+				</tr>
+</table>
+<hr>
+</body>
+</html>

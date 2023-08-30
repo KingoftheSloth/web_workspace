@@ -1,0 +1,43 @@
+package api;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+
+public class ApiExample {
+
+    public static void main(String[] args) {
+        String apiKey = "ne53vYZ%2FHctQxGJhVLlcKvtvzi%2FHNfY42exeWo4iiO%2FxrJTgFukzupa98bwUDM318BruDv8y8kWtQDh76hClvQ%3D%3D";
+        String apiUrl = "http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sido";
+        String queryParams = "?ServiceKey=" + apiKey + "&pageNo=1&numOfRows=10&upr_cd=6110000";
+
+        try {
+            URL url = new URL(apiUrl + queryParams);
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            connection.setRequestMethod("GET");
+
+            BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+            String line;
+            StringBuilder response = new StringBuilder();
+
+            while ((line = reader.readLine()) != null) {
+                response.append(line);
+            }
+
+            reader.close();
+            connection.disconnect();
+
+            String responseData = response.toString();
+            System.out.println(responseData); // API 데이터 출력
+
+            // 파싱하여 JSON 형태로 출력
+            // 이 부분은 추가로 JSON 라이브러리를 사용하여 원하는 형식으로 출력할 수 있습니다.
+            // Gson, Jackson 등의 라이브러리를 사용하면 편리하게 JSON 데이터를 처리할 수 있습니다.
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}

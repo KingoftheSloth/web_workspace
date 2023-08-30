@@ -1,0 +1,13 @@
+package dto;
+
+import dao.animalDao;
+
+public class testdao {
+public static void main(String[] args) {
+	long num = Long.parseLong("448543202300238");
+	Animal animal = animalDao.getInstance().selectOne(num);
+	System.out.println(animal);
+}
+
+
+}

@@ -1,0 +1,65 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Gasoek+One&family=IBM+Plex+Sans+KR&display=swap');
+/* 모든 요소에 적용되는 선택자는 기호 * 입니다. */
+
+*{
+	font-family:'Bagel Fat One', cursive;
+}
+/* , 로 나열한 태그를 선택하여 스타일을 적용하기  */
+/* header, nav, footer, section {
+box-sizing : border-box;} */
+
+h3{
+	width : 600px;
+margin : 1px auto;	
+}
+
+table{
+	border-top: 3px solid gray;
+	border-bottom: 3px solid gray;
+	width : 600px;
+	margin : auto;
+}
+
+td{
+	padding: 10px;
+}
+/* 자식요소들 td중 첫번째 chlid의 child: 자손은 공백, 자식은 >  */
+td:first-child > label{
+	background-color: #c69;
+	color: white;
+	border-radius: 5px; /* 테두리의 모서리를 둥글게 */
+	text-align: center;
+	width: 80%;
+	display : inline-block;
+	padding : 10px;
+}
+
+button {
+	padding : 7px 15px;
+	margin : 15px 7px;
+	background-color: rgb(194,14,104);
+	border: none;
+	color: white;
+	font-size: 1.1em;
+	border-radius : 4px;
+	cursor: pointer; /* 마우스 포인터를 손가락 모양 */
+}
+
+button:hover{
+	background-color: rgh(75,7,52);
+}
+/* 자식요소들 td 중 첫번째 child의 child: 자손(할아버지의 손자)은 공백, 자식의 (아버지의 아들)은 > */
+tr:last-child > td {
+	text-align : center;
+}
+/* 태그의 속성으로 선택자를 표기하는 방법은 [] 기호 사용  */
+input[type=text],input[type=password],input[type=email]{
+	width: 60%
+}
+
+input,select{
+	padding: 6px;
+	border-radius: 6px;
+	border: 1px solid gray;
+}
