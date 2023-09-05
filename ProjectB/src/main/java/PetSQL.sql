@@ -27,3 +27,16 @@ drop table Animal;
 drop table Shelter;
 Select * from Shelter;
 Select * from Animal;
+
+CREATE TABLE ADOPT (
+	ADOPTIDX NUMBER PRIMARY KEY,
+	ANIID VARCHAR2(255),
+	USERID VARCHAR2(255),
+ 	ADOPTDATE VARCHAR2(255)
+ );
+
+CREATE SEQUENCE ADOPT_IDX;
+DROP SEQUENCE APOPTIDX;
+
+SELECT * FROM ADOPT;
+drop table adopt;

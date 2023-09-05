@@ -11,9 +11,8 @@
 <table>
 				<tr>
 					<th><a href='listAnimal.jsp'>홈</a></th>
-					<th><a href='ShelterManage.jsp'>동물관리</a></th>
-					<th><a href='Shelter_adopt.jsp'>입양요청</a></th>
-					<th><a href='Shelter_MyPage.jsp'>Mypage</a></th>
+					<th><a href='ShelterAdopt.jsp'>입양요청</a></th>
+					<th><a href='ShelterMyPage.jsp'>Mypage</a></th>
 				</tr>
 </table>
 <hr>

@@ -90,9 +90,9 @@ public class ApiTest {
                         .careNm((String) item.get("careNm"))
                         .build();
                 animalList.add(animal);
-                animalDao.getInstance().insert(animal);
                 System.out.println(animal);
-                
+               
+               
             }
 	}   catch (Exception e) {
 		System.out.println(e.getMessage());

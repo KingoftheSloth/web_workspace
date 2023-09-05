@@ -1,3 +1,4 @@
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -5,149 +6,53 @@
 <head>
 <meta charset="UTF-8">
 <title>API 데이터 출력</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+	crossorigin="anonymous">
 </head>
-<h1>API 데이터 출력 예시</h1>
-<button type="button" onclick="gotoBucket()">찜목록가기</button>
-<div id="infoContainer"></div>
-<table>
-  <tbody id="infoTable"></tbody>
-</table>
-<div id="dataContainer">
-	<!-- 서버에서 받아온 데이터가 여기에 출력될 것입니다 -->
+<style>
+.pointer-cursor {
+	cursor: pointer;
+}
+</style>
+
+<body>
+	<h1>유기동물API 데이터 출력</h1>
+	<div>
+    <!-- 검색 필드 -->
+    <select id="searchCondition">
+    <option value="kindCd">품종 (예: 개, 고양이)</option>
+    <option value="careAddr">지역 (예: 강원 → 강원도)</option>
+    <option value="age">나이(예: 20 → 2020년생)</option>
+	</select>
+    <input type="text" id="searchInput" placeholder="검색어를 입력하세요">
+    <!-- 검색 버튼 -->
+    <button id="searchButton">검색</button>
 </div>
-<script type="text/javascript">
-  const xhr = new XMLHttpRequest();
-  // 요청 파라미터를 쿼리스트링으로 설정
-  xhr.open(
-    'GET',
-    'http://apis.data.go.kr/1543061/abandonmentPublicSrvc/abandonmentPublic?serviceKey=ne53vYZ%2FHctQxGJhVLlcKvtvzi%2FHNfY42exeWo4iiO%2FxrJTgFukzupa98bwUDM318BruDv8y8kWtQDh76hClvQ%3D%3D&_type=json&numOfRows=20'
-  );
-  xhr.send();
-  xhr.onload = function () {
-    if (xhr.status == 200) {
-      let response = JSON.parse(xhr.response);
-      let dataContainer = document.getElementById('dataContainer');
-      let infoTable = document.getElementById('infoTable');
-      let items = response.response.body.items.item;
-
-      let infoHtml = '';
-
-      for (let i = 0; i < items.length; i += 4) {
-        infoHtml += '<tr>';
-        for (let j = i; j < i + 4 && j < items.length; j++) {
-          let item = items[j];
-          let processState = item.processState;
-          let kind = item.kindCd;
-          let color = item.colorCd;
-          let special = item.specialMark;
-          let photo = item.popfile; // 사진 파일 URL
-
-          let pick = '찜하기';
-
-          infoHtml +=
-            '<td>' +
-            '<img src="' +
-            photo +
-            '" width="30%">' +
-            '<p><strong>상태:</strong> ' +
-            processState +
-            '</p>' +
-            '<p><strong>종:</strong> ' +
-            kind +
-            '</p>' +
-            '<p><strong>색:</strong> ' +
-            color +
-            '</p>' +
-            '<p><strong>특이사항:</strong> ' +
-            special +
-            '</p>' +
-            '<button type="button" onclick="addToBucket(\'' +
-            processState +
-            "', '" +
-            kind +
-            "', '" +
-            color +
-            "', '" +
-            special +
-            "', '" +
-            photo +
-            "')\">" +
-            pick +
-            '</button>' +
-            '</td>';
-        }
-        infoHtml += '</tr>';
-      }
-
-      infoTable.innerHTML = infoHtml;
-
-      dataContainer.innerHTML = '<pre>' + JSON.stringify(response, null, 2) + '</pre>';
-    }
-  };
-  
-  let itemsToBeAdded = []; // 선택한 아이템들을 저장할 배열
-  let kinds = []; // 종 정보를 저장할 배열
-  let colors = []; // 색 정보를 저장할 배열
-  let specials = []; 
-  
-  function addToBucket(processState, kind, color, special, photo) {
-	    if (confirm("이 아이가 맘에 드시나요?") == true) {
-	        itemsToBeAdded.push({
-	            processState: processState,
-	            kind: kind,
-	            color: color,
-	            special: special,
-	            photo: photo
-	        });
-
-	        // 추가로 kinds와 같은 필드도 저장
-	        kinds.push(kind);
-	        colors.push(color);
-	        specials.push(special);
-	    }
-	}
-  function gotoBucket() {
-      // 선택한 아이템들을 bucket.jsp로 전송하는 로직 추가
-      let form = document.createElement('form');
-      form.method = 'POST';
-      form.action = 'bucket.jsp';
-
-      for (let item of itemsToBeAdded) {
-          let photoField = document.createElement('input');
-          photoField.type = 'hidden';
-          photoField.name = 'photo';
-          photoField.value = item.photo;
-          form.appendChild(photoField);
-
-          let statusField = document.createElement('input');
-          statusField.type = 'hidden';
-          statusField.name = 'processState';
-          statusField.value = item.processState;
-          form.appendChild(statusField);
-
-          let colorField = document.createElement('input');
-          colorField.type = 'hidden';
-          colorField.name = 'color';
-          colorField.value = item.color;
-          form.appendChild(colorField);
-
-          let kindField = document.createElement('input');
-          kindField.type = 'hidden';
-          kindField.name = 'kind';
-          kindField.value = item.kind;
-          form.appendChild(kindField);
-
-          let specialField = document.createElement('input');
-          specialField.type = 'hidden';
-          specialField.name = 'special';
-          specialField.value = item.special;
-          form.appendChild(specialField);
-
-          // 선택한 아이템들을 폼에 추가한 후에 제출
-          document.body.appendChild(form);
-          form.submit();
-      }
-  }
-</script>
+	<input type="hidden" name=desertionNo id=desertionNo>
+	<!-- 검색리스트 -->
+	<div id="searchContainer"></div>
+	<hr>
+	<!-- 동물 사진 리스트  -->
+	<div id="photoContainer"></div>
+	<div id="animalDetails">
+		<hr>
+	</div>
+	<div id="pagination">
+		<button id="prevPageBtn" onclick="loadPageData(currentPage - 1)"
+			disabled>이전 페이지</button>
+		<div id="pageNumbers"></div>
+		<button id="nextPageBtn" onclick="loadPageData(currentPage + 1)"
+			disabled>다음 페이지</button>
+	</div>
+	<script type="text/javascript" src="./js/openAnimalAPI.js"></script>
+	<script type="text/javascript" src="./js/openAnimalDetails.js"></script>
+	<script type="text/javascript" src="./js/searchAnimal.js"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+		crossorigin="anonymous"></script>
 </body>
 </html>
