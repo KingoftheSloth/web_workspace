@@ -17,8 +17,7 @@ public class Animal {
     private String desertionNo;
     private String filename;
     private String happenDt;
-    private String kind;
-    private String breed;
+    private String kindCd;
     private String colorCd;
     private String age;
     private String weight;
@@ -27,5 +26,6 @@ public class Animal {
     private String neuterYn;
     private String specialMark;
     private String careNm;
+    private String careAddr;
 
 }

@@ -19,7 +19,7 @@
 </style>
 
 <body>
-	<h1>유기동물API 데이터 출력</h1>
+  	<h1>유기동물API 데이터 출력</h1>
 	<div>
     <!-- 검색 필드 -->
     <select id="searchCondition">
@@ -38,9 +38,8 @@
 	<!-- 동물 사진 리스트  -->
 	<div id="photoContainer"></div>
 	<div id="animalDetails">
-		<hr>
-	</div>
-	<div id="pagination">
+	 </div>
+		<div id="pagination">
 		<button id="prevPageBtn" onclick="loadPageData(currentPage - 1)"
 			disabled>이전 페이지</button>
 		<div id="pageNumbers"></div>
@@ -48,8 +47,8 @@
 			disabled>다음 페이지</button>
 	</div>
 	<script type="text/javascript" src="./js/openAnimalAPI.js"></script>
-	<script type="text/javascript" src="./js/openAnimalDetails.js"></script>
 	<script type="text/javascript" src="./js/searchAnimal.js"></script>
+	<script type="text/javascript" src="./js/openAnimalDetails.js"></script>
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"

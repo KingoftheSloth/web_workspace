@@ -21,6 +21,7 @@
         <th>방문예약날짜</th>
         <th>동물 ID</th>
         <th>사용자 ID</th>
+        <th>사용자 연락처</th>
     </tr>
     <%
         for (adopt item : list) {
