@@ -19,7 +19,7 @@ public class adopt {
     private String aniid;
     private String userid;
     private String adoptdate;
-
+    private String filename;
 }
 
 

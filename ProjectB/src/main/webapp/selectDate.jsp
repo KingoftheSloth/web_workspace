@@ -16,12 +16,14 @@ String desertionNo = "";
 String age = "";
 String careAddr = "";
 String careNm = "";
+String filename= "";
 
 if (animal != null) {
     desertionNo = animal.getDesertionNo();
     age = animal.getAge();
     careAddr = animal.getCareAddr();
     careNm = animal.getCareNm();
+    filename = animal.getFilename();
     // 이하 변수들을 사용하십시오.
 } else {
    out.print("오류");
@@ -32,12 +34,15 @@ if (animal != null) {
 <p>동물 번호: <%= desertionNo %></p>
 <p>보호소 주소: <%= careAddr %></p>
 <p>보호소 이름: <%= careNm %></p>
+<p>파일 이름: <%= filename %></p>
+
 <div id="map" style="width:550px;height:350px;"></div>
     
 <!-- selectedItem 정보를 파라미터로 전달 -->
 <form action="SaveToDB.jsp" method="post">
     <input type="hidden" name="desertionNo" value=<%= desertionNo %>>
     <input type="hidden" name="careAddr" value=<%= careAddr %>>
+    <input type="hidden" name="filename" value=<%= filename %>>
     
     <!-- selectedItem 정보를 추가 -->
     

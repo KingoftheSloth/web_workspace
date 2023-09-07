@@ -16,8 +16,8 @@
 </select>
 
 <insert id="insertMeeting" parameterType="projectB.dto.adopt">
-    INSERT INTO ADOPT (adoptidx, aniid, userid,  adoptdate)
-    VALUES (adopt_idx.nextval,#{aniid},#{userid},#{adoptdate})
+    INSERT INTO ADOPT (adoptidx, aniid, userid,  adoptdate, filename)
+    VALUES (adopt_idx.nextval,#{aniid},#{userid},#{adoptdate},#{filename})
 </insert>
 </mapper>
  

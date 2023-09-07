@@ -19,39 +19,37 @@
 </style>
 
 <body>
-  	<h1>유기동물API 데이터 출력</h1>
+	<h1>유기동물API 데이터 출력</h1>
 	<div>
-    <!-- 검색 필드 -->
-    <select id="searchCondition">
-    <option value="kindCd">품종 (예: 개, 고양이)</option>
-    <option value="careAddr">지역 (예: 강원 → 강원도)</option>
-    <option value="age">나이(예: 20 → 2020년생)</option>
-	</select>
-    <input type="text" id="searchInput" placeholder="검색어를 입력하세요">
-    <!-- 검색 버튼 -->
-    <button id="searchButton">검색</button>
-</div>
+		<!-- 검색 버튼 -->
+		<label> 
+		<input type="radio" id="dogRadio" name="animalType"	value="개"> 
+			<label for="dogRadio">개</label> 
+			<input type="radio" id="catRadio" name="animalType" value="고양이"> 
+			<label for="catRadio">고양이</label> <input type="radio" id="othersRadio"	name="animalType" value="기타"> <label for="othersRadio">기타</label>
+		</label>
+		<button id="searchButton">검색</button>
+	</div>
 	<input type="hidden" name=desertionNo id=desertionNo>
 	<!-- 검색리스트 -->
-	<div id="searchContainer"></div>
+	<div id="searchResultsContainer">
+		<!-- 검색 결과가 여기에 표시됩니다. -->
+	</div>
 	<hr>
 	<!-- 동물 사진 리스트  -->
-	<div id="photoContainer"></div>
-	<div id="animalDetails">
-	 </div>
-		<div id="pagination">
-		<button id="prevPageBtn" onclick="loadPageData(currentPage - 1)"
-			disabled>이전 페이지</button>
-		<div id="pageNumbers"></div>
-		<button id="nextPageBtn" onclick="loadPageData(currentPage + 1)"
-			disabled>다음 페이지</button>
+	<div id="photoContainer" class="w-full grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-y-3 gap-x-3" ></div>
+	<div id="animalDetails" class="flex-1 flex flex-col gap-1 p-2"></div>
+	<div id="pagination">
+'현재페이지':<span id="page" >1</span>
+		<button id="prevPageBtn" onclick="prevPageData()">이전 페이지</button>
+		<button id="nextPageBtn" onclick="nextPageData()">다음 페이지</button>
 	</div>
 	<script type="text/javascript" src="./js/openAnimalAPI.js"></script>
-	<script type="text/javascript" src="./js/searchAnimal.js"></script>
 	<script type="text/javascript" src="./js/openAnimalDetails.js"></script>
-	<script
+		<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
-		crossorigin="anonymous"></script>
+		crossorigin="anonymous">
+	</script>
 </body>
 </html>

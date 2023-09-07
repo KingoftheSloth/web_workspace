@@ -190,9 +190,7 @@
 		}
 		else {
 			alert('입양 심사 통과!')
-			desertionNo = document.getElementById("desertionNo").value;
-			console.log(desertionNo)
-			location.href = '../selectDate.jsp?desertionNo=' + desertionNo;
+			location.href = '../selectDate.jsp';
 		}
 		
 		

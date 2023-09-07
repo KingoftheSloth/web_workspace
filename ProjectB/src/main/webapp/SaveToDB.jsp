@@ -5,9 +5,10 @@
 <%
 String aniid = request.getParameter("desertionNo");
 String adoptDate= request.getParameter("selectedDate");
+String filename = request.getParameter("filename");
 
-adopt dto = adopt.builder()
-.adoptdate(adoptDate).aniid(aniid).userid("test").build();
+adopt dto = adopt.builder() 
+.adoptdate(adoptDate).aniid(aniid).userid("test").filename(filename).build();
 animalDao.getInstance().insertMeeting(dto);
 %>
 <!DOCTYPE html>
@@ -24,6 +25,7 @@ alert('신청이 완료되었습니다.');
 // 첫 페이지로 리디렉션
 window.location.href = 'listAnimal.jsp';
 </script>
+console.log(<%=filename%>)
 </body>
 </html>
 
