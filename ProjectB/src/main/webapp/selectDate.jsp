@@ -30,11 +30,9 @@ if (animal != null) {
 }
 %>
 
-<p>다음은 세션에서 읽어온 정보입니다:</p>
 <p>동물 번호: <%= desertionNo %></p>
 <p>보호소 주소: <%= careAddr %></p>
 <p>보호소 이름: <%= careNm %></p>
-<p>파일 이름: <%= filename %></p>
 
 <div id="map" style="width:550px;height:350px;"></div>
     
