@@ -25,19 +25,61 @@
 }
 /* 버튼 스타일 */
 .my-button {
-	padding: 10px 20px; /* 버튼 내부 패딩 설정 */
-	background-color: #007BFF; /* 배경색 설정 */
-	color: #fff; /* 글자색 설정 */
+	padding: 10px 15px; /* 버튼 내부 패딩 설정 */
+	background-color: skyblue; /* 배경색 설정 */
+	color: #000000; /* 글자색 설정 */
 	border: none; /* 테두리 없애기 */
 	border-radius: 5px; /* 버튼 모서리 둥글게 만들기 */
 	cursor: pointer; /* 포인터 커서 설정 */
-	font-size: 20px; /* 글자 크기 설정 */
+	font-size: 15px; /* 글자 크기 설정 */
 }
 
 /* 라디오 버튼 스타일 */
 .my-radio {
 	margin-right: 5px; /* 라디오 버튼 간격 설정 */
 	font-size: 20px; /* 글자 크기 설정 */
+}
+
+.radio-button-container {
+	display: flex;
+	align-items: center; /* Vertically align the items */
+}
+
+/* Adjust spacing if needed */
+.radio-button-container label {
+	margin-right: 10px; /* Add spacing between radio buttons and labels */
+}
+
+.radio-button-container button {
+	margin-left: 10px; /* Add spacing between buttons */
+}
+
+.icon-container {
+	position: relative;
+	display: inline-block; /* 요소를 인라인 블록 요소로 설정하여 텍스트와 아이콘이 옆으로 정렬됩니다. */
+	width: 80px;
+}
+
+.icon-container img {
+	width: 80%;
+	height: 80%;
+	top: 80%;
+}
+
+.icon-container input {
+	position: absolute;
+}
+
+.icon-container label {
+	position: absolute;
+	bottom: -35px; /* 아래에 배치 */
+	left: 50%; /* 가운데 정렬을 위해 왼쪽 여백 조정 */
+	transform: translateX(-50%);
+	/* 가운데 정렬을 위해 왼쪽 여백 조정 */
+	padding: 3px;
+	left: 50%; /* 가운데 정렬을 위해 왼쪽 여백 조정 */
+	transform: translateX(-50%);
+	transform: translateX(-50%);
 }
 </style>
 
@@ -124,27 +166,55 @@
 
 	<main style="margin-bottom: 200px; text-align: center;">
 
-		<div>
+		<div id="mainTitle">
 			<h1 class="mt-5">현재 보호중인 친구들</h1>
-			<div>
-				<!-- 검색 버튼 -->
-				<label> <input type="radio" id="dogRadio" name="animalType"
-					value="개"> <label for="dogRadio" class="my-radio">개</label>
-					<input type="radio" id="catRadio" name="animalType" value="고양이"
-					class="my-radio"> <labelfor="catRadio">고양이</label> <input
-					type="radio" id="othersRadio" name="animalType" value="기타">
-				<label for="othersRadio">기타</label> </label>
+			<hr>
+			<div class="mb-3">
+				<button id="searchButton"
+					class="my-button btn  btn-outline-secondary btn-rounded">검색</button>
+				<button id="resetButton"
+					class="my-button btn btn-outline-secondary btn-rounded">검색
+					초기화</button>
 			</div>
-			<button id="searchButton" class="my-button">검색</button>
-			<button id="resetButton" class="my-button">검색 초기화</button>
+			<div class="mb-5">
+				<!-- 검색 버튼 -->
+				<label>
+					<div class="icon-container">
+						<img src="dog.png" alt="dog" /> <input type="radio"
+							class="btn-check" autocomplete="off" id="dogRadio"
+							name="animalType" value="개"> <label
+							class="btn btn-outline-secondary" style="width: 65px;"
+							for="dogRadio" class="my-radio">개</label>
+					</div>
+				</label> <label>
+					<div class="icon-container">
+						<img src="cat.png" alt="cat" /> <input type="radio"
+							class="btn-check" id="catRadio" autocomplete="off"
+							name="animalType" value="고양이" class="my-radio"> <label
+							class="btn btn-outline-secondary" style="width: 65px;"
+							for="catRadio">고양이</label>
+					</div>
+				</label> <label>
+					<div class="icon-container">
+						<img src="ham.png" alt="ham" /> <input type="radio"
+							class="btn-check" autocomplete="off" id="othersRadio"
+							name="animalType" value="기타"> <label
+							class="btn btn-outline-secondary" style="width: 65px;"
+							for="othersRadio">기타</label>
+					</div>
+				</label>
+
+			</div>
+
+
 
 			<input type="hidden" name=desertionNo id=desertionNo>
 
 			<div id="animalDetails"
-				style="width: 650px; margin: auto; text-align: left; padding: 30px; margin-top: 30px;"></div>
+				style="width: 1400px; text-align: left; padding: 30px; margin-top: 30px; margin-left: 280px;"></div>
 
 			<div class="d-flex align-items-center">
-				<button
+				<button id="left"
 					style="height: 100px; margin-left: 450px; border: 1px solid white; background-color: white;"
 					id="prevPageBtn" onclick="prevPageData()">
 					<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50"
@@ -155,7 +225,7 @@
 					</svg>
 				</button>
 
-				<!-- 검색리스트 -->
+				<!-- 동물 리스트 -->
 				<div class="d-flex" id="searchResultsContainer">
 					<!-- 검색 결과가 여기에 표시됩니다. -->
 				</div>

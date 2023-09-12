@@ -28,6 +28,9 @@ if (animal != null) {
 } else {
    out.print("오류");
 }
+//minDate 선언 및 현재 날짜 설정
+java.text.SimpleDateFormat dateFormat = new java.text.SimpleDateFormat("yyyy-MM-dd");
+String minDate = dateFormat.format(new java.util.Date());
 %>
 
 <p>동물 번호: <%= desertionNo %></p>
@@ -44,8 +47,8 @@ if (animal != null) {
     
     <!-- selectedItem 정보를 추가 -->
     
-    <label for="selectedDate">날짜 선택:</label> <input type="date" id="selectedDate" name="selectedDate">
-    <button>저장하기</button>
+    <label for="selectedDate">날짜 선택:</label>   <input type="date" id="dateInput" name="selectedDate" min="<%= minDate %>" required>
+    <button id="saveButton">저장하기</button>
 </form>
 </body>
 <script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=fd0458dd2581769bcd6f4a1afd2cc428&libraries=services"></script>
@@ -96,6 +99,25 @@ if (animal != null) {
 
 		// 지도를 생성한다 
 		var map = new kakao.maps.Map(mapContainer, mapOption); 
-		
+				 
+		//오늘 날짜 이전은 선택못하게 설정
+		window.onload = function () {
+        const today = new Date();
+        const year = today.getFullYear();
+        let month = today.getMonth() + 1;
+        let day = today.getDate();
+
+        if (month < 10) {
+            month = `0${month}`;
+        }
+
+        if (day < 10) {
+            day = `0${day}`;
+        }
+
+        const minDate = `${year}-${month}-${day}`;
+        document.getElementById("dateInput").setAttribute("min", minDate);
+    };
+    
 	</script>
 </html>

@@ -23,7 +23,8 @@ animalDao.getInstance().insertMeeting(dto);
 alert('신청이 완료되었습니다.');
 
 // 첫 페이지로 리디렉션
-window.location.href = 'listAnimal.jsp';
+window.opener.location.href = 'listAnimal2.jsp';
+window.close();
 </script>
 console.log(<%=filename%>)
 </body>
