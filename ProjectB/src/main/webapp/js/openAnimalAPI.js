@@ -166,27 +166,6 @@ function nextPageData() {
 }
 
 
-// JavaScript에서 초기화 버튼을 클릭 이벤트에 연결합니다.
-document.getElementById('resetButton').addEventListener('click', function() {
-  // 페이지 번호를 1로 초기화합니다.
-  	document.getElementById('page').innerHTML = 1;
-  
-  // 라디오 버튼 선택도 초기화합니다.
-  const radioButtons = document.querySelectorAll('input[name="animalType"]');
-  radioButtons.forEach(function(radioButton) {
-    radioButton.checked = false;
-  });
-	 const animalDetails = document.getElementById('animalDetails');
-  animalDetails.style.display = 'none';
-  
-  // 내용을 지웁니다.
-  // 검색 결과를 초기 상태로 되돌립니다.
-  loadPageData(1, initialUrl);
-  
-});
-
-
-
 const catCode = 422400;
 const dogCode = 417000;
 const otherCode = 429900;

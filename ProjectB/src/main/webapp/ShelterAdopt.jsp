@@ -1,3 +1,4 @@
+<%@page import="projectB.dao.usersDao"%>
 <%@page import="projectB.dto.adopt"%>
 <%@page import="java.util.List"%>
 <%@page import="projectB.dao.animalDao"%>
@@ -170,6 +171,7 @@ img {
 						</tr>
 					</thead>
 					<%
+					 usersDao dao = usersDao.getInstance();
 					for (adopt item : list) {
 						String desertionNo = item.getAniid(); // desertionNo를 동적으로 설정합니다.
 					%>
@@ -182,7 +184,7 @@ img {
 							<td><%=item.getAdoptdate()%></td>
 							<td><%=item.getAniid()%></td>
 							<td><%=item.getUserid()%></td>
-							<td>전화번호</td>
+							<td><%=dao.selectuserPhone(item.getUserid()) %></td>
 							<td>
 								<button class="reserve-button"
 									data-animal-id="<%=item.getAniid()%>">예약</button>

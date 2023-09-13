@@ -185,7 +185,7 @@
 		
 		
 		function openPopup() {
-    window.open('../selectDate.jsp', 'PopupWindowName', 'width=800,height=600,toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=no');
+    window.open('../selectDate.jsp', 'PopupWindowName', 'width=650,height=600,toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=yes');
 }
 		if (allow == false || fail > 30) {
 			alert('입양 심사 탈락!')

@@ -93,7 +93,7 @@ function displayItems() {
 
 
 				let linkElement = document.createElement('a');
-				linkElement.href = 'listAnimal.jsp'; // 이 부분을 원하는 JSP 페이지의 주소로 변경
+				linkElement.href = 'listAnimal2.jsp'; // 이 부분을 원하는 JSP 페이지의 주소로 변경
 
 				// 이미지를 링크에 추가
 				linkElement.appendChild(imgElement);
@@ -111,7 +111,7 @@ function displayItems() {
 				rowElement.appendChild(colElement);
 
 				imgElement.addEventListener('click', function() {
-				location.href = 'listAnimal.jsp'
+				location.href = 'listAnimal2.jsp'
 				});
 			}
 		}

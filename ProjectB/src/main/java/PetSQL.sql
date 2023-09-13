@@ -41,3 +41,25 @@ DROP SEQUENCE APOPTIDX;
 
 SELECT * FROM ADOPT;
 drop table adopt;
+
+
+
+
+CREATE TABLE USERS
+(
+   USERID varchar2(30) NOT NULL,
+   USERCATE varchar2(15) NOT NULL,
+   USERPASS varchar2(40) NOT NULL,
+   USERNAME varchar2(20) NOT NULL,
+   USERNICK varchar2(40) NOT NULL UNIQUE,
+   USERAGE number NOT NULL,
+   USERCITY varchar2(30) NOT NULL,
+   USEREMAIL varchar2(50) NOT NULL,
+   USERPHONE varchar2(15) NOT NULL,
+   USERDATE date NOT NULL,
+   PRIMARY KEY (USERID)
+);
+
+select * from USERS
+drop table users;
+INSERT INTO USERS VALUES ('test','사용자','jj','박종화','test',22,'경기도','sdcfd@naver.com','010-6487-3611',sysdate);

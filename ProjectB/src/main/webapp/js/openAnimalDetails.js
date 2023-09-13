@@ -12,23 +12,42 @@ function animalDetail(desertionNo) {
 				animalDetails.classList.add('row'); // Bootstrap 그리드 컨테이너로 설정
 				animalDetails.style.borderBottom = '1px solid black';
 
-				// 이미지 표시 부분 (오른쪽에 배치)
+				// 이미지 표시 부분 (왼쪽에 배치)
 				const imageContainer = document.createElement('div');
 				imageContainer.classList.add('col-md-6', 'order-mb-4'); // Bootstrap 그리드 클래스 및 순서 설정
+				imageContainer.style.position = 'relative';
+
 				const image = document.createElement('img');
 				image.src = selectedItem.popfile;
 				image.alt = '동물 이미지';
+				image.setAttribute('id', 'img');
 				image.width = '650';
 				image.height = '520';
 				imageContainer.appendChild(image);
 
-				// 동물 상세 정보 부분 (왼쪽에 배치)
+				const rotateButton = document.createElement('button');
+				rotateButton.textContent = "90°";
+				rotateButton.setAttribute('id', 'rotate');
+				rotateButton.classList.add("btn", "btn-dark");
+				rotateButton.style.position = 'absolute';
+				rotateButton.style.border = 'none';
+				rotateButton.style.width = '66px';
+				rotateButton.style.top = '93%';
+				rotateButton.style.left = '89%';
+				rotateButton.onclick = rotate;
+				imageContainer.appendChild(rotateButton);
+
+				const icon = document.createElement('i');
+				icon.classList.add("bi", "bi-arrow-clockwise");
+				rotateButton.appendChild(icon);
+
+				// 동물 상세 정보 부분 (오른쪽에 배치)
 				const infoContainer = document.createElement('div');
 				infoContainer.classList.add('col-md-6', 'order-mb-4'); // Bootstrap 그리드 클래스 및 순서 설정
 				infoContainer.style.width = '500px';
 				infoContainer.style.marginLeft = '100px';
 				infoContainer.style.fontFamily = 'Arial, Helvetica, sans-serif';
-				
+
 				const htmlContent = "<h2>상세프로필</h2>" +
 					"<p>유기번호: " + selectedItem.desertionNo + "</p>" +
 					"<p>나이: " + selectedItem.age + "</p>" +
@@ -59,14 +78,12 @@ function animalDetail(desertionNo) {
 				goBackButton.onclick = goBack; // 버튼 클릭 시 goBack 함수 실행
 				infoContainer.appendChild(goBackButton);
 
-
 				// 이미지와 정보 컨테이너를 추가
-				animalDetails.innerHTML = ''; // 기존 내용 초기화
+				/*animalDetails.innerHTML = ''; // 기존 내용 초기화*/
 				animalDetails.appendChild(imageContainer);
 				animalDetails.appendChild(infoContainer);
 
 				window.scrollTo(0, 0);
-				/*	animalDetails.scrollIntoView({ behavior: "auto", block: "start" });*/
 				// 입양 신청 시 필요한 정보를 세션에 저장
 			} else {
 				// 해당 동물 정보가 없는 경우 처리
@@ -222,4 +239,18 @@ function goBack() {
 	animalDetails.style.border = "none"; // border를 제거하는 스타일 추가
 }
 
-document.getElementById('searchResultsContainer').scrollTop = 0;
+
+
+let isClicked = false;
+
+function rotate() {
+	const img = document.getElementById("img");
+
+	if (!isClicked) {
+		img.style.transform = "rotate(90deg)";
+		isClicked = true;
+	} else {
+		img.style.transform = "rotate(0deg)";
+		isClicked = false;
+	}
+}

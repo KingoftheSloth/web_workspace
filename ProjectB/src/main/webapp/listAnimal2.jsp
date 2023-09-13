@@ -13,6 +13,9 @@
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
 	rel="stylesheet">
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
 </head>
 <style>
 .pointer-cursor {
@@ -80,6 +83,10 @@
 	left: 50%; /* 가운데 정렬을 위해 왼쪽 여백 조정 */
 	transform: translateX(-50%);
 	transform: translateX(-50%);
+}
+/* 현재페이지 숨기기 */
+#page {
+	display: none !important;
 }
 </style>
 
@@ -211,11 +218,11 @@
 			<input type="hidden" name=desertionNo id=desertionNo>
 
 			<div id="animalDetails"
-				style="width: 1400px; text-align: left; padding: 30px; margin-top: 30px; margin-left: 280px;"></div>
+				style="width: 1400px; text-align: left; padding: 30px; padding-bottom: 80px; margin: 100px auto; margin-left: 280px;"></div>
 
 			<div class="d-flex align-items-center">
 				<button id="left"
-					style="height: 100px; margin-left: 450px; border: 1px solid white; background-color: white;"
+					style="position: relative; height: 100px; margin-left: 450px; border: 1px solid white; background-color: white;"
 					id="prevPageBtn" onclick="prevPageData()">
 					<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50"
 						fill="currentColor" class="bi bi-arrow-left-circle-fill"
@@ -247,7 +254,7 @@
 			<div id="pagination" style="text-align: center;">
 				<div id="photoContainer"
 					class="w-full grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-y-3 gap-x-3"></div>
-				현재페이지:<span id="page">1</span>
+				<span id="page">1</span>
 
 			</div>
 			<hr>
