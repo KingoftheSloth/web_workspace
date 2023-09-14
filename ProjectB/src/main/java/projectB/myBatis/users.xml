@@ -7,4 +7,17 @@
     <select id="selectuserPhone" parameterType="String" resultType="String">
         SELECT userphone FROM users WHERE userid = #{userid}
     </select>
+    
+   <insert id="sendMessage" parameterType="projectB.dto.Message">
+    INSERT INTO MESSAGE (userid, aniid, message)
+    VALUES (#{userid},#{aniid},#{message})
+  </insert>
+    <select id="checkMessage" resultType="projectB.dto.Message">
+        SELECT * FROM message 
+    </select>
+
+<delete id="deleteAdopt" parameterType="String">
+ DELETE FROM ADOPT
+WHERE aniid = #{aniid};
+</delete>
 </mapper>

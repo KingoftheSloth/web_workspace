@@ -98,6 +98,7 @@
 							<!-- 노란 배경의 스타일 -->
 							<button type="button" class="btn btn-warning"
 								onclick="location.href='${pageContext.request.contextPath}/account/signup2.jsp'">회원가입</button>
+								<button type="button" onclick="location.href='checkMessage.jsp'">메세지 확인</button>
 						</c:if>
 					</div>
 				</div>
@@ -228,9 +229,12 @@
 				<!-- 동물 사진 리스트  -->
 				<div id="photoContainer" class="w-full gap-y-3 gap-x-2 p-5"
 					style="text-align: center;"></div>
-				<button type="button" class="btn btn-outline-primary" style="width: 150px; margin: auto;">더보기</button>
+				<button type="button" class="btn btn-outline-primary" style="width: 150px; margin: auto;"
+				onclick="location.href='listAnimal2.jsp'">더보기</button>
 				
 			</div>
+			
+			<img alt="" src="secretOfdog.png" style = "width:1300px; height:600px;">
 			<!-- /.row -->
 
 			<!-- 수평 구분선(가로줄) 생성 -->

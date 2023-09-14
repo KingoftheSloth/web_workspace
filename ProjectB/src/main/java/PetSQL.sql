@@ -63,3 +63,11 @@ CREATE TABLE USERS
 select * from USERS
 drop table users;
 INSERT INTO USERS VALUES ('test','사용자','jj','박종화','test',22,'경기도','sdcfd@naver.com','010-6487-3611',sysdate);
+
+create TABLE message
+(   userid varchar2(30) NOT NULL,
+	aniid varchar2(50) NOT NULL,
+	message varchar2(255) NOT NULL
+);
+
+select * from MESSAGE
