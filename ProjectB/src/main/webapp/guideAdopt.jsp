@@ -95,7 +95,7 @@
 	<main style="margin-bottom: 200px; text-align: center;">
 
 		<div id="mainTitle">
-<hr>
+		<img alt="" src="guideAdopt.png">
 <img alt="" src="adoptCaution.png">
 <div id=adoptStep1>
 <img alt="" src="adoptOrder1.png">

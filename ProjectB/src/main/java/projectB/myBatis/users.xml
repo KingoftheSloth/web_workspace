@@ -16,8 +16,8 @@
         SELECT * FROM message 
     </select>
 
-<delete id="deleteAdopt" parameterType="String">
- DELETE FROM ADOPT
-WHERE aniid = #{aniid};
-</delete>
+  <delete id="deleteAdopt" parameterType="int">
+ 	DELETE FROM ADOPT
+	WHERE adoptidx = #{adoptidx}
+ </delete>
 </mapper>

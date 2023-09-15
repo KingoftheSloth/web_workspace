@@ -85,9 +85,9 @@
 	transform: translateX(-50%);
 }
 /* 현재페이지 숨기기 */
-#page {
+/* #page {
 	display: none !important;
-}
+} */
 </style>
 
 <body class="d-flex flex-column min-vh-100 pb-0">

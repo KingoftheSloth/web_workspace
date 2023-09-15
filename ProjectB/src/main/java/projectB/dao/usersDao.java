@@ -38,9 +38,9 @@ public class usersDao {
     		return list;
     	}
         
-        public int deleteAdopt(String aniid) {
+        public int deleteAdopt(int adoptidx) {
         	SqlSession mapper = SqlSessionBean.getSession();
-    		int idx = mapper.insert("users.deleteAdopt", aniid);
+    		int idx = mapper.insert("users.deleteAdopt", adoptidx);
     		mapper.commit();
     		mapper.close();
     		return idx;

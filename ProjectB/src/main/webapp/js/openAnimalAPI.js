@@ -122,16 +122,6 @@ function displayInitialItems() {
 }
 
 
-
-function prevPageData() {
-	const page = document.getElementById("page");
-	const currentPage = parseInt(page.innerHTML); // 현재 페이지 번호를 정수로 가져옵니다.
-	if (currentPage > 1) {
-		page.innerHTML = currentPage - 1; // 이전 페이지로 이동합니다.
-		loadPageData(currentPage - 1); // 데이터를 로드합니다.
-	}
-}
-
 function nextPageData() {
 	const page = document.getElementById("page");
 	const currentPage = parseInt(page.innerHTML); // 현재 페이지 번호를 정수로 가져옵니다.
@@ -163,6 +153,42 @@ function nextPageData() {
 		page.innerHTML = currentPage + 1; // 다음 페이지로 이동합니다.
 		loadPageData(currentPage + 1, newUrl); // 데이터를 로드합니다.
 	}
+}
+
+
+function prevPageData() {
+    const page = document.getElementById("page");
+    let currentPage = parseInt(page.innerHTML); // 현재 페이지 번호를 정수로 가져옵니다.
+    currentPage = currentPage > 1 ? currentPage - 1 : 1; // 이전 페이지로 이동합니다. 최소 페이지 번호는 1입니다.
+
+    const kindRadio = document.querySelector('input[name="animalType"]:checked');
+    let kindCode;
+
+    if (!kindRadio) {
+        // 동물 종류를 선택하지 않은 경우 기본 URL로 데이터 로딩
+        const newUrl = `http://apis.data.go.kr/1543061/abandonmentPublicSrvc/abandonmentPublic?serviceKey=ne53vYZ%2FHctQxGJhVLlcKvtvzi%2FHNfY42exeWo4iiO%2FxrJTgFukzupa98bwUDM318BruDv8y8kWtQDh76hClvQ%3D%3D&_type=json&bgnde=${tenDaysAgoFormatted}&endde=${todayFormatted}&numOfRows=${itemsPerPage}&pageNo=${currentPage}`;
+        // URL을 동적으로 생성합니다.
+
+        // 수정된 URL로 데이터를 로드합니다.
+        page.innerHTML = currentPage; // 현재 페이지 번호 업데이트
+        loadPageData(currentPage, newUrl); // 데이터를 로드합니다.
+    } else {
+        const kindValue = kindRadio.value;
+        // 현재 선택한 동물 종류에 따라 kind 값을 설정합니다.
+        if (kindValue === "개") {
+            kindCode = dogCode;
+        } else if (kindValue === "고양이") {
+            kindCode = catCode;
+        } else if (kindValue === "기타") {
+            kindCode = otherCode;
+        }
+        const newUrl = `http://apis.data.go.kr/1543061/abandonmentPublicSrvc/abandonmentPublic?serviceKey=ne53vYZ%2FHctQxGJhVLlcKvtvzi%2FHNfY42exeWo4iiO%2FxrJTgFukzupa98bwUDM318BruDv8y8kWtQDh76hClvQ%3D%3D&_type=json&bgnde=${tenDaysAgoFormatted}&endde=${todayFormatted}&numOfRows=${itemsPerPage}&pageNo=${currentPage}&upkind=${kindCode}`;
+        // URL을 동적으로 생성합니다.
+
+        // 수정된 URL로 데이터를 로드합니다.
+        page.innerHTML = currentPage; // 현재 페이지 번호 업데이트
+        loadPageData(currentPage, newUrl); // 데이터를 로드합니다.
+    }
 }
 
 

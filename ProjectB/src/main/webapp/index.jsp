@@ -139,6 +139,7 @@
               <!-- 배경 사각형 채우기, 배경 색상 지정 -->
               <rect width="100%" height="100%"
 							fill="var(--bs-secondary-color)" />
+							 <image xlink:href="recommendAdopt2.png" width="100%" height="80%" x="40%" y="10%" />
             </svg>
 					<div class="container">
 						<!-- 슬라이드 캡션, 왼쪽 정렬 -->
@@ -160,8 +161,8 @@
 						preserveAspectRatio="xMidYMid slice" focusable="false">
               <!-- 배경을 어둡게 설정 -->
               <rect width="100%" height="100%" fill="black" />
-              <image xlink:href="cow.jpg" width="50%" height="50%"
-							x="25%" y="15%" />
+              <image xlink:href="recommendAdopt_1.png" width="50%" height="50%" x="25%" y="15%" />
+              
             </svg>
 					<div class="container">
 						<div class="carousel-caption">
@@ -179,6 +180,7 @@
 					<svg class="bd-placeholder-img" width="100%" height="100%"
 						xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
 						preserveAspectRatio="xMidYMid slice" focusable="false">
+
               <rect width="100%" height="100%"
 							fill="var(--bs-secondary-color)" />
             </svg>

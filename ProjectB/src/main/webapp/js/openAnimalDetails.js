@@ -83,7 +83,7 @@ function animalDetail(desertionNo) {
 				animalDetails.appendChild(imageContainer);
 				animalDetails.appendChild(infoContainer);
 
-				window.scrollTo(0, 0);
+				window.scrollTo(0, 200);
 				// 입양 신청 시 필요한 정보를 세션에 저장
 			} else {
 				// 해당 동물 정보가 없는 경우 처리
